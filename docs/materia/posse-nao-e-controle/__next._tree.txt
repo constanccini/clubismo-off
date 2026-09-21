@@ -1,0 +1,3 @@
+:HL["/clubismo-off/_next/static/css/b3b4b0c9878e2236.css","style"]
+:HL["/clubismo-off/images/logo-clubismo-off.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"materia","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"posse-nao-e-controle","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"uMih8YsJ1oOcD1SyCVQLu"}
