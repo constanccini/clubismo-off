@@ -1,0 +1,49 @@
+CLUBISMO OFF — PRONTO PARA PUBLICAR
+
+Esta é a versão original recuperada, com logo corrigida e compacta à esquerda,
+cabeçalho baixo, identidade branca e verde, layout responsivo, quatro editorias
+e seis matérias de demonstração. Não há login nem comentários.
+
+PUBLICAÇÃO PELO SEU NAVEGADOR NORMAL
+
+1. Extraia este ZIP no computador.
+
+2. Abra https://github.com/constanccini/clubismo-off
+   Se o repositório estiver vazio, clique em "uploading an existing file".
+   Se já houver arquivos, use "Add file" > "Upload files".
+   Arraste a pasta docs inteira para a área de upload.
+   Aguarde o carregamento dos 89 arquivos e confirme em "Commit changes" na
+   branch main. Envie a pasta extraída, não o ZIP.
+
+3. Abra https://github.com/constanccini/clubismo-off/settings/pages
+   Em "Build and deployment":
+   Source: Deploy from a branch
+   Branch: main
+   Folder: /docs
+   Clique em Save.
+
+4. Aguarde a publicação. O GitHub mostrará o endereço quando estiver pronta.
+   O endereço esperado é https://constanccini.github.io/clubismo-off/
+   Este endereço ainda não foi publicado nem confirmado pelo assistente.
+
+OBSERVAÇÕES
+
+A pasta docs contém o site já gerado. Não é necessário instalar programas,
+configurar tokens ou usar o navegador na nuvem. O arquivo .nojekyll está dentro
+da pasta e deve ser incluído: arraste a pasta inteira para preservar os arquivos.
+
+O pacote usa o caminho /clubismo-off/ do seu repositório. Quando você conectar
+um domínio próprio, os caminhos precisarão ser gerados novamente para o domínio.
+Não foi configurado domínio próprio.
+
+O conteúdo continua identificado como demonstração e marcado para não ser
+indexado por buscadores. As matérias definitivas devem substituir os exemplos
+antes da estreia editorial. O código-fonte original continua preservado no
+projeto; este pacote contém a exportação pronta para publicação.
+
+Depois de publicar textos ou modificar o código, será necessário gerar e enviar
+uma nova exportação, ou conectar a publicação automática já preparada no projeto.
+
+GUIAS OFICIAIS
+https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
