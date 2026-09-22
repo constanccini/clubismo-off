@@ -1,0 +1,136 @@
+media:
+  - name: fotos
+    label: Fotos
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, webp, gif, avif]
+    rename: safe
+
+content:
+  - name: materias
+    label: Matérias
+    type: collection
+    path: content/articles
+    format: json
+    subfolders: false
+    filename:
+      template: "{primary}.json"
+      field: false
+    operations:
+      create: true
+      delete: true
+      rename: false
+    view:
+      primary: title
+      fields: [title, published, category, date]
+      search: [title, excerpt, body]
+      sort: [date, title, priority]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: excerpt
+        label: Resumo da capa
+        type: text
+        required: true
+        description: Uma ou duas frases para apresentar a matéria na capa do blog.
+      - name: category
+        label: Editoria
+        type: select
+        required: true
+        options:
+          values:
+            - {name: opiniao, label: Opinião}
+            - {name: analises, label: Análises}
+            - {name: resenha, label: Resenha}
+            - {name: noticias, label: Notícias}
+      - name: topic
+        label: Assunto
+        type: string
+        description: "Exemplo: Futebol brasileiro ou Dentro do jogo."
+      - name: author
+        label: Assinatura
+        type: string
+        description: Seu nome ou o nome de quem escreveu a matéria.
+      - name: date
+        label: Data da matéria
+        type: date
+        description: Data exibida na assinatura. Este campo não agenda a publicação.
+        options:
+          format: yyyy-MM-dd
+      - name: image
+        label: Foto de capa
+        type: image
+        options:
+          media: fotos
+      - name: imageAlt
+        label: Descrição da foto
+        type: string
+        description: Descreva o que aparece na foto. Preencha quando usar uma capa.
+      - name: imageCaption
+        label: Legenda
+        type: text
+      - name: imageCredit
+        label: Crédito da foto
+        type: string
+      - name: imageSource
+        label: Link da fonte da foto
+        type: string
+        pattern:
+          regex: '^$|^https?://.+'
+          message: Use o endereço completo, começando com https://.
+      - name: imageLicense
+        label: Licença da foto
+        type: string
+        description: Preencha quando a imagem exigir indicação de licença.
+      - name: imageLicenseUrl
+        label: Link da licença
+        type: string
+        pattern:
+          regex: '^$|^https?://.+'
+          message: Use o endereço completo, começando com https://.
+      - name: body
+        label: Texto da matéria
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: fotos
+          switcher: false
+      - name: priority
+        label: Prioridade na capa
+        type: number
+        default: 0
+        description: Use 0 normalmente. Números maiores aparecem primeiro. Em caso de empate, vale a data mais recente.
+        options:
+          min: 0
+          max: 100
+      - name: demo
+        label: Texto de demonstração
+        type: boolean
+        default: false
+        description: Deixe desligado nas suas matérias reais. Os exemplos atuais estão identificados como demonstração.
+      - name: published
+        label: Visível no blog
+        type: boolean
+        default: false
+        description: Ligue e salve para publicar. Desligue e salve para retirar do blog. A atualização acontece após a publicação automática. Conteúdos salvos continuam acessíveis no repositório público do GitHub, mesmo com esta opção desligada.
+
+  - name: configuracoes
+    label: Configurações do blog
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - name: showDemoNotice
+        label: Mostrar aviso de pré-estreia
+        type: boolean
+        description: Desligue quando substituir as matérias de exemplo pelas suas. Cada exemplo mantém sua identificação individual.
+      - name: allowIndexing
+        label: Permitir aparecer nas buscas
+        type: boolean
+        description: Ligue quando o blog estiver pronto para ser encontrado pelo Google. Isso permite a indexação, mas não garante posição nem prazo.
