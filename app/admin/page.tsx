@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { Masthead, Footer } from "@/components/editorial";
+import Link from "next/link";
 
 export const metadata: Metadata = { title: "Painel de matérias", robots: { index: false, follow: false } };
 
@@ -10,6 +11,7 @@ export default function AdminPage() {
     <h1>A próxima matéria começa aqui.</h1>
     <p>Use o Pages CMS para escrever, editar matérias e enviar fotos para o Clubismo Off.</p>
     <a className="panel-button" href="https://app.pagescms.org">Entrar no painel <ArrowUpRight size={18} /></a>
+    <p><Link className="text-link" href="/admin/redacao">Abrir fila da Redação Clubismo Off <ArrowUpRight size={18} /></Link></p>
     <ol><li>Entre com a sua conta do GitHub e selecione <strong>clubismo-off</strong>, na branch <strong>main</strong>.</li>
       <li>Abra <strong>Matérias</strong> para criar um texto ou escolher um existente.</li>
       <li>Para publicar, ligue <strong>Visível no blog</strong> e salve. Para retirar, desligue a opção e salve, ou exclua a matéria.</li></ol>

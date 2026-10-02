@@ -11,7 +11,7 @@ function BrandLogo({ footer = false }: { footer?: boolean }) {
 export function Masthead({ active = "" }: { active?: string }) {
   return <header className="site-header"><a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
     <div className="masthead-top"><span>FUTEBOL BRASILEIRO</span><span>INDEPENDENTE POR PRINCÍPIO.</span></div>
-    <div className="masthead page-shell"><BrandLogo /><nav className="main-nav" aria-label="Editorias"><Link href="/" aria-current={active === "inicio" ? "page" : undefined}>Início</Link>{Object.entries(categories).map(([key, value]) => <Link key={key} href={`/categoria/${key}`} aria-current={active === key ? "page" : undefined}>{value.label}</Link>)}<span className="nav-signature">A paixão fica. O clubismo sai. <ArrowUpRight size={15} /></span></nav></div>
+    <div className="masthead page-shell"><BrandLogo /><nav className="main-nav" aria-label="Editorias"><Link href="/" aria-current={active === "inicio" ? "page" : undefined}>Início</Link>{Object.entries(categories).map(([key, value]) => <Link key={key} href={`/categoria/${key}`} aria-current={active === key ? "page" : undefined}>{value.label}</Link>)}<Link href="/ultimas" aria-current={active === "ultimas" ? "page" : undefined}>Últimas</Link><span className="nav-signature">A paixão fica. O clubismo sai. <ArrowUpRight size={15} /></span></nav></div>
     {settings.showDemoNotice && <div className="demo-notice"><span>PRÉ-ESTREIA</span> Você está lendo uma edição de demonstração, com textos ilustrativos.</div>}
   </header>;
 }

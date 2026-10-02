@@ -2,12 +2,12 @@
 
 ## O fluxo do Bruno
 
-1. A tarefa **Redação Clubismo Off**, no ChatGPT, pesquisa às 0h, 6h, 12h e 18h de Brasília. Entrega até quatro textos por rodada, numerados, com fontes e a assinatura **Redação Clubismo Off**. Não publica nada.
+1. A tarefa **Redação Clubismo Off**, no ChatGPT, pesquisa às 0h, 6h, 12h e 18h de Brasília. Prepara até quatro textos por rodada, numerados, com fontes e a assinatura **Redação Clubismo Off**, e salva os rascunhos no GitHub para revisão. Não publica nada.
 2. A fila do blog fica em `/admin/redacao/`. Ela lê os rascunhos já salvos em `content/news/`, sem dividir por assunto. O número da rodada é permanente; a numeração visual da fila pode mudar após uma exclusão.
 3. Leia o texto e abra a fonte. **Postar** registra sua aprovação e envia a alteração ao GitHub. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina com sucesso. **Excluir** remove o rascunho da fila; o histórico do GitHub permite recuperá-lo.
 4. Para editar, use o Pages CMS, coleção **Fila de notícias**. Para retirar uma notícia publicada, mude a etapa para **Arquivado** e salve. A fila rápida só exclui rascunhos.
 
-**Estado da ligação:** o agendamento entrega textos no ChatGPT. Ele ainda não grava rascunhos no GitHub. A coleta e a escrita no painel são integrações diferentes; não há importação automática escondida nesta versão. Sem essa ligação, o texto precisa ser cadastrado em Fila de notícias. Não ativar gravação recorrente sem confirmar acesso e testar o caminho completo.
+**Ligação com a fila:** a tarefa usa o conector GitHub autorizado para criar arquivos em `content/news/`, sempre com `status: revisao`. O contrato está em `REDACAO-AUTOMACAO.md`. Cada gravação deve ser lida de volta antes de confirmar a entrega. Se a tarefa não conseguir salvar, entrega os textos no chat e informa a falha; não afirma que chegaram ao painel. Rascunhos não são exportados para o blog. A aprovação é feita pelo editor.
 
 ## Primeiro acesso à fila
 
@@ -47,9 +47,9 @@ A validação técnica confere formato, datas, links, fontes cadastradas, revis�
 - A fila grava usando o SHA da versão que você leu. Se outro editor alterou a notícia, a aprovação é recusada e a fila deve ser atualizada.
 - A atualização não recria matérias de exemplo nem fotos apagadas, não muda as configurações do blog e não refaz a identidade visual.
 
-## Integração futura dos rascunhos
+## Gravação recorrente dos rascunhos
 
-Após testar permissão de escrita, a tarefa pode criar fontes e notas no repositório, sempre como `status: revisao`, com `origin: redacao` e código `ticket` da rodada. Ela não deve preencher aprovação, mudar para Publicado, excluir conteúdo, alterar código ou repetir uma notícia já enviada. Preserve os slugs e confira o estado atual antes de gravar. Notifique falhas sem alegar que os textos chegaram à fila.
+A tarefa pode criar fontes verificadas e notas no repositório, sempre como `status: revisao`, com `origin: redacao` e código `ticket` da rodada. Ela não deve preencher aprovação, mudar para Publicado, excluir conteúdo, alterar código ou repetir uma notícia já enviada. Preserve os slugs e confira o estado atual antes de gravar. Notifique falhas sem alegar que os textos chegaram à fila.
 
 O contrato de dados está em `lib/news-schema.ts`; as regras em `lib/news-policy.ts`. Os campos de publicação são preenchidos somente após a aprovação humana. Não usar o agendamento para publicar automaticamente, mesmo para fonte A.
 

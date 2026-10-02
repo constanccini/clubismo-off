@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { articles, Article } from "@/lib/articles";
 import { Masthead, Footer, ArticleMeta, CategoryLabel, StoryImage } from "@/components/editorial";
+import { news } from "@/lib/news";
+import { NewsFeed } from "@/components/news-feed";
 
 function SideStory({ article, image = false }: { article: Article; image?: boolean }) {
   return <article className="side-story">
@@ -31,6 +33,7 @@ export default function Home() {
         <h3><Link href={`/materia/${article.slug}`}>{article.title}</Link></h3><p>{article.excerpt}</p><ArticleMeta article={article} />
       </article>)}</div>
     </section>}
+    <section className="latest-section" aria-labelledby="latest-heading"><div className="section-line"><h2 id="latest-heading">Últimas</h2><Link className="text-link" href="/ultimas">Todas as notícias <ArrowUpRight size={16} /></Link></div><NewsFeed items={news.slice(0, 6)} /></section>
     <aside className="editorial-note"><div className="off-mark" aria-hidden="true">OFF.</div><div><span className="eyebrow">NOSSA LINHA EDITORIAL</span><h2>Seu time tem a sua torcida.<br />O argumento tem que se sustentar sozinho.</h2></div><Link href="/categoria/opiniao" className="note-link">Entre na conversa <ArrowRight size={20} /></Link></aside>
   </main><Footer /></>;
 }

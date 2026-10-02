@@ -120,6 +120,247 @@ content:
         default: false
         description: Ligue e salve para publicar. Desligue e salve para retirar do blog. A atualização acontece após a publicação automática. Conteúdos salvos continuam acessíveis no repositório público do GitHub, mesmo com esta opção desligada.
 
+  - name: ultimas
+    label: Fila de notícias
+    type: collection
+    path: content/news
+    format: json
+    subfolders: false
+    filename:
+      template: "{primary}.json"
+      field: false
+    operations:
+      create: true
+      delete: true
+      rename: false
+    view:
+      primary: title
+      fields: [ticket, title, status, publishedAt]
+      search: [title, lead, details]
+      sort: [publishedAt, title, status]
+      default:
+        sort: publishedAt
+        order: desc
+    fields:
+      - name: ticket
+        label: Número da rodada
+        type: string
+        description: Código enviado na rodada de notícias, como 20261001-06-01.
+      - name: origin
+        type: string
+        default: manual
+        hidden: true
+      - name: title
+        label: Título factual
+        type: string
+        required: true
+        description: Até 160 caracteres. Sem opinião, adjetivos promocionais ou clickbait.
+      - name: status
+        label: Etapa
+        type: select
+        default: rascunho
+        description: "Rascunho → Aguardando Bruno → Publicado. Todas as fontes exigem revisão humana nesta fase. Arquivado retira a nota do blog."
+        options:
+          values:
+            - {name: rascunho, label: Rascunho}
+            - {name: revisao, label: Aguardando Bruno}
+            - {name: publicado, label: Publicado}
+            - {name: arquivado, label: Arquivado}
+      - name: type
+        label: Tipo de informação
+        type: select
+        options:
+          values:
+            - {name: contratacao, label: Contratação}
+            - {name: renovacao, label: Renovação}
+            - {name: emprestimo, label: Empréstimo}
+            - {name: rescisao, label: Rescisão}
+            - {name: nota_oficial, label: Nota oficial}
+            - {name: partida, label: Data / horário / local de jogo}
+            - {name: convocacao, label: Convocação / desconvocação}
+            - {name: bid, label: Inscrição no BID}
+            - {name: suspensao, label: Suspensão confirmada}
+            - {name: escalacao, label: Escalação oficial}
+            - {name: resultado, label: Resultado}
+            - {name: sorteio, label: Sorteio}
+            - {name: tabela, label: Tabela de competição}
+            - {name: lesao, label: Comunicado de lesão}
+            - {name: rumor, label: Rumor — fora de Últimas}
+            - {name: acusacao, label: Acusação / investigação — revisão especial}
+            - {name: politica, label: Política interna — revisão especial}
+            - {name: financas, label: Finanças complexas — revisão especial}
+            - {name: arbitragem, label: Arbitragem controversa — revisão especial}
+            - {name: legislacao, label: Legislação / regulamento — revisão especial}
+            - {name: bastidores, label: Bastidores / conflito — revisão especial}
+            - {name: analise, label: Análise — use Matérias}
+            - {name: opiniao, label: Opinião — use Matérias}
+      - name: transferStage
+        label: Etapa da transferência ou vínculo
+        type: select
+        default: nao_se_aplica
+        description: "Oficial exige fonte oficial. Interesse fica fora de Últimas. Negociação e acerto exigem revisão e atribuição à fonte."
+        options:
+          values:
+            - {name: nao_se_aplica, label: Não se aplica}
+            - {name: interesse, label: Interesse}
+            - {name: negociacao, label: Negociação}
+            - {name: acerto, label: Acerto}
+            - {name: oficial, label: Oficial}
+      - name: sensitive
+        label: Envolve tema sensível além do tipo escolhido?
+        type: boolean
+        default: false
+        description: "Acusações, política, finanças complexas, investigações, bastidores, conflitos, arbitragem, legislação ou interpretação: nunca permitir automação, mesmo em nota oficial."
+      - name: lead
+        label: Lead — quem fez o quê e quando
+        type: text
+        description: Até 650 caracteres. Informe apenas o que a fonte sustenta.
+      - name: details
+        label: Detalhes objetivos
+        type: text
+        description: "Até 1.800 caracteres. Não presuma valores, duração, diagnóstico ou motivo. Quando relevante, escreva: O comunicado não informa os valores."
+      - name: context
+        label: Contexto factual — opcional
+        type: text
+        description: Até 1.000 caracteres. Se usar fatos de outra fonte, acrescente-a nas confirmações e fontes complementares.
+      - name: source
+        label: Fonte original cadastrada
+        type: reference
+        options:
+          collection: fontes
+          value: "{path}"
+          label: "{fields.name} — {fields.grade}"
+          search: "name,fields.name"
+      - name: sourceUrl
+        label: Link exato do comunicado / documento / postagem
+        type: string
+        description: HTTPS. Deve pertencer ao site ou perfil cadastrado. Use o documento específico, não a página inicial.
+      - name: sourcePublishedAt
+        label: Data e hora da fonte — se informadas
+        type: date
+        default: ""
+        description: Deixe vazio se a fonte não informar. Não estime.
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mmXXX"
+      - name: evidence
+        label: Fatos conferidos na fonte
+        type: text
+        description: Registre os dados que sustentam a nota com suas palavras. Não copie o artigo inteiro. Este registro não entra na página, mas o repositório é público.
+      - name: confirmations
+        label: Confirmações e fontes complementares
+        type: object
+        list: true
+        description: Obrigatório incluir confirmação oficial quando a fonte principal for imprensa geral (C), ou quando uma fonte secundária sustentar status Oficial.
+        fields:
+          - name: source
+            label: Fonte cadastrada
+            type: reference
+            options:
+              collection: fontes
+              value: "{path}"
+              label: "{fields.name} — {fields.grade}"
+          - name: url
+            label: Link exato
+            type: string
+          - name: evidence
+            label: Quais fatos esta fonte confirma?
+            type: text
+      - name: author
+        label: Assinatura
+        type: string
+        default: Redação Clubismo Off
+      - name: reviewer
+        label: Revisado por
+        type: string
+        description: Preencha ao concluir a revisão, antes de escolher Publicado.
+      - name: reviewedAt
+        label: Data e hora da revisão
+        type: date
+        default: ""
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mmXXX"
+      - name: sourceChecked
+        label: Abri a fonte original e confirmei autoria e conteúdo
+        type: boolean
+        default: false
+      - name: factsChecked
+        label: Conferi cada fato e não completei dados ausentes
+        type: boolean
+        default: false
+      - name: styleChecked
+        label: Revisei neutralidade e atribuição — sem opinião ou especulação
+        type: boolean
+        default: false
+        description: Ao alterar uma nota, refaça as três conferências e atualize a revisão.
+      - name: publishedAt
+        label: Data e hora da publicação
+        type: date
+        default: ""
+        description: Preencha ao publicar. O blog exibe horário de Brasília. Data futura é recusada; não há agendamento.
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mmXXX"
+      - name: updatedAt
+        label: Data e hora da atualização — opcional
+        type: date
+        default: ""
+        description: Ao corrigir nota publicada, mantenha a data original e preencha este campo e a nota abaixo.
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mmXXX"
+      - name: correction
+        label: Nota de correção ou atualização — opcional
+        type: text
+        description: Aparece para o leitor. Explique objetivamente o que mudou.
+
+  - name: fontes
+    label: Fontes
+    type: collection
+    path: content/sources
+    format: json
+    subfolders: false
+    filename:
+      template: "{primary}.json"
+      field: false
+    operations:
+      create: true
+      delete: true
+      rename: false
+    view:
+      primary: name
+      fields: [name, grade, active]
+      search: [name, baseUrl]
+      sort: [name, grade]
+    fields:
+      - name: name
+        label: Nome da fonte
+        type: string
+        required: true
+      - name: grade
+        label: Classificação da fonte
+        type: select
+        required: true
+        default: C
+        description: A classe da fonte não autoriza temas sensíveis. Todas as publicações continuam manuais.
+        options:
+          values:
+            - {name: A, label: A — oficial / primária}
+            - {name: B, label: B — jornalista / agência confiável}
+            - {name: C, label: C — imprensa geral / exige confirmação}
+            - {name: D, label: D — agregador / torcida / ignorar}
+      - name: baseUrl
+        label: Endereço do site ou perfil
+        type: string
+        required: true
+        description: HTTPS e domínio exato. Para rede social, inclua o caminho do perfil oficial. Verifique a identidade; selo de verificação sozinho não basta.
+      - name: active
+        label: Fonte conferida e ativa
+        type: boolean
+        default: false
+        description: Ative após conferir o endereço. Desativar uma fonte referenciada por nota publicada exige revisar ou arquivar a nota para a próxima publicação passar.
+
   - name: configuracoes
     label: Configurações do blog
     type: file
