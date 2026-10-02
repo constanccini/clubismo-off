@@ -45,6 +45,47 @@ jobs:
             git commit -m 'Instalar conteúdo editável e painel do Clubismo Off'
             git push origin HEAD:main
           fi
+      - name: Aplicar atualização da redação quando enviada
+        shell: bash
+        run: |
+          if [ -f atualizacao-redacao.zip ]; then
+            python3 - <<'PYUPDATE'
+          import hashlib, json, subprocess
+          from pathlib import Path, PurePosixPath
+          from zipfile import ZipFile
+          def blob_sha(data):
+              return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+          with ZipFile('atualizacao-redacao.zip') as archive:
+              manifest = json.loads(archive.read('manifest.json'))
+              pending = []
+              for item in manifest['files']:
+                  name = item['path']
+                  path = PurePosixPath(name)
+                  if path.is_absolute() or '..' in path.parts or '\\' in name or str(path) != name:
+                      raise ValueError('Caminho inválido: ' + name)
+                  if path.parts[0] not in {'app', 'components', 'lib', 'scripts', 'tests', '.pages.yml', '.gitignore', 'tsconfig.json', 'REDACAO.md'}:
+                      raise ValueError('Arquivo fora da atualização: ' + name)
+                  data = archive.read('files/' + name)
+                  if hashlib.sha256(data).hexdigest() != item['sha256']:
+                      raise ValueError('Pacote inválido: ' + name)
+                  target = Path(name)
+                  current = blob_sha(target.read_bytes()) if target.exists() else None
+                  if current not in {item['base_sha'], blob_sha(data)}:
+                      raise ValueError('Arquivo alterado após preparar o pacote: ' + name + '. Preserve sua versão e peça uma atualização do pacote.')
+                  pending.append((target, data))
+              for target, data in pending:
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(data)
+              subprocess.run(['git', 'add', '--', *[str(target) for target, _ in pending]], check=True)
+          PYUPDATE
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git rm -- atualizacao-redacao.zip
+            if ! git diff --cached --quiet; then
+              git commit -m 'Instalar fila de aprovação da Redação Clubismo Off'
+              git push origin HEAD:main
+            fi
+          fi
       - uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -53,7 +94,7 @@ jobs:
       - name: Instalar dependências
         run: pnpm install --frozen-lockfile --prod=false
       - name: Verificar conteúdo
-        run: node --test tests/editorial.test.mjs
+        run: node --test tests/*.test.mjs
       - name: Obter endereço do blog
         id: pages
         uses: actions/configure-pages@v5
