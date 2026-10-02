@@ -1,0 +1,60 @@
+# Redação Clubismo Off
+
+## O fluxo do Bruno
+
+1. A tarefa **Redação Clubismo Off**, no ChatGPT, pesquisa às 0h, 6h, 12h e 18h de Brasília. Entrega até quatro textos por rodada, numerados, com fontes e a assinatura **Redação Clubismo Off**. Não publica nada.
+2. A fila do blog fica em `/admin/redacao/`. Ela lê os rascunhos já salvos em `content/news/`, sem dividir por assunto. O número da rodada é permanente; a numeração visual da fila pode mudar após uma exclusão.
+3. Leia o texto e abra a fonte. **Postar** registra sua aprovação e envia a alteração ao GitHub. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina com sucesso. **Excluir** remove o rascunho da fila; o histórico do GitHub permite recuperá-lo.
+4. Para editar, use o Pages CMS, coleção **Fila de notícias**. Para retirar uma notícia publicada, mude a etapa para **Arquivado** e salve. A fila rápida só exclui rascunhos.
+
+**Estado da ligação:** o agendamento entrega textos no ChatGPT. Ele ainda não grava rascunhos no GitHub. A coleta e a escrita no painel são integrações diferentes; não há importação automática escondida nesta versão. Sem essa ligação, o texto precisa ser cadastrado em Fila de notícias. Não ativar gravação recorrente sem confirmar acesso e testar o caminho completo.
+
+## Primeiro acesso à fila
+
+O blog permanece no GitHub Pages, sem servidor novo. A fila usa a API do GitHub diretamente do navegador. Conecte um token de acesso restrito a `constanccini/clubismo-off`, com **Contents: Read and write**. O token fica somente na memória da aba: não vai para o código, arquivos, endereço, cookies, armazenamento do navegador ou logs. Ao recarregar ou sair, conecte novamente. Nunca envie o token pelo chat.
+
+O Pages CMS continua disponível com seu acesso atual, como alternativa. A autenticação dele não é compartilhada com esta fila, pois são sites diferentes. A integração GitHub usada pelo assistente também é separada do token usado pelo editor.
+
+O repositório é público. Rascunhos não saem nas páginas do blog, mas seus arquivos e histórico são públicos no GitHub. Não incluir dados confidenciais nos campos de conferência.
+
+## Demonstração sem publicar
+
+Abra `/admin/redacao/` e clique em **Ver uma demonstração**. O exemplo usa clube e atleta fictícios. **Simular postagem** e **Simular exclusão** mostram o fluxo sem fazer chamadas de gravação ao GitHub. Nenhuma notícia de exemplo é adicionada a `content/news/`.
+
+No editor completo: cadastre uma fonte em **Fontes**, confira seu endereço e ative-a. Crie a nota em **Fila de notícias**, preencha título, lead, detalhes e link da fonte, salve como **Rascunho** e depois como **Aguardando Bruno**. Ela aparecerá na fila rápida. O botão Postar preenche assinatura, revisor, horário e os registros de aprovação. Quem usa o editor completo para publicar precisa preencher essas conferências manualmente.
+
+## Regras editoriais
+
+- Um fato por nota, título factual, lead com quem fez o quê e quando, detalhes objetivos, contexto apenas se comprovado e fonte original identificada com link.
+- Não opinar, especular, usar adjetivos promocionais ou sensacionalismo, transformar rumores em fatos, nem inventar dados ausentes.
+- Não concluir que algo nunca foi divulgado apenas porque não aparece no documento. Quando relevante, usar “O comunicado não informa os valores”. Não completar prazos, datas, estatísticas, causas ou diagnósticos.
+- Fonte A: oficial. B: jornalista ou agência confiável. C: imprensa geral, exige confirmação oficial adicional. D: agregador ou torcida, não aceita para publicação.
+- A classe da fonte não é a permissão de automação. Temas sensíveis nunca são elegíveis, inclusive quando estão em comunicado oficial. Rumor, interesse, análise e opinião não entram em Últimas.
+- Interesse não publica; negociação e acerto exigem revisão e atribuição; Oficial exige fonte oficial ou confirmação oficial adicional.
+- Todas as publicações exigem decisão humana nesta versão. A elegibilidade futura é apenas um resultado de classificação; não liga robô, agenda ou publicador.
+- Ao corrigir nota publicada, refaça a revisão, mantenha a data original, informe a data de atualização e explique a correção para o leitor.
+
+A validação técnica confere formato, datas, links, fontes cadastradas, revisão e duplicidade do link original. Ela **não comprova a veracidade do texto nem substitui a leitura humana**. As caixas de revisão registram a decisão do editor; não constituem um sistema independente de permissões por cargo. Uma pessoa com acesso de escrita ao repositório pode alterar arquivos.
+
+## Arquitetura e preservação
+
+- Matérias autorais seguem em `content/articles/`, com as categorias, endereços e destaque originais.
+- Notícias aprovadas ficam em `content/news/` e aparecem em uma lista única em `/ultimas/`, abaixo dos destaques na capa. Não competem pela prioridade dos textos autorais.
+- Fontes ficam em `content/sources/`. O vínculo verifica domínio e caminho, inclusive para perfis sociais. O editor deve conferir a identidade do perfil; um selo sozinho não basta.
+- `scripts/prepare-content.mjs` exporta somente notícias publicadas e validadas. Os arquivos gerados não incluem rascunhos, evidências internas ou dados de revisão.
+- Uma nota inválida bloqueia a nova publicação do site; a última versão publicada permanece. O erro aparece em GitHub → Actions. Corrija a nota ou volte sua etapa para Rascunho e salve.
+- Os horários públicos usam America/Sao_Paulo. Datas futuras são recusadas; este campo não agenda postagem.
+- A fila grava usando o SHA da versão que você leu. Se outro editor alterou a notícia, a aprovação é recusada e a fila deve ser atualizada.
+- A atualização não recria matérias de exemplo nem fotos apagadas, não muda as configurações do blog e não refaz a identidade visual.
+
+## Integração futura dos rascunhos
+
+Após testar permissão de escrita, a tarefa pode criar fontes e notas no repositório, sempre como `status: revisao`, com `origin: redacao` e código `ticket` da rodada. Ela não deve preencher aprovação, mudar para Publicado, excluir conteúdo, alterar código ou repetir uma notícia já enviada. Preserve os slugs e confira o estado atual antes de gravar. Notifique falhas sem alegar que os textos chegaram à fila.
+
+O contrato de dados está em `lib/news-schema.ts`; as regras em `lib/news-policy.ts`. Os campos de publicação são preenchidos somente após a aprovação humana. Não usar o agendamento para publicar automaticamente, mesmo para fonte A.
+
+## Verificação
+
+`node --test tests/*.test.mjs` verifica preservação das matérias, estados da fila, regras de fonte e assunto, datas, duplicidade, gravação com versão, exclusão restrita e erros de acesso. `pnpm run build` exporta as páginas para GitHub Pages. A verificação de chamadas ao GitHub usa respostas simuladas e não equivale a comprovar a permissão da conta real.
+
+Referências de implementação: [Pages CMS](https://pagescms.org/docs/configuration/content/fields/), [permissões do GitHub](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens), [tarefas agendadas](https://learn.chatgpt.com/docs/automations).
