@@ -3,7 +3,6 @@
   "status": "revisao",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
-  "context": "",
   "sourcePublishedAt": "2026-10-01T14:51-03:00",
   "confirmations": [],
   "author": "Redação Clubismo Off",
@@ -25,10 +24,10 @@
   "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
   "ticket": "20261001-18-02",
   "title": "Brasil vence os Estados Unidos por 2 a 0 em amistoso Sub-20",
-  "lead": "O Brasil venceu os Estados Unidos por 2 a 0 em 1º de outubro de 2026, na Pinatar Arena, em San Pedro del Pinatar, na Espanha. Igor Felisberto e Heittor marcaram no segundo tempo, segundo o relato da CBF.",
-  "details": "Foi a segunda vitória brasileira na série de amistosos no país, após o 4 a 1 sobre a Dinamarca. O próximo compromisso informado pela CBF é contra o México, em 4 de outubro, às 6h de Brasília, novamente na Pinatar Arena.",
   "type": "resultado",
   "source": "content/sources/cbf.json",
   "sourceUrl": "https://www.cbf.com.br/selecao-brasileira/noticias/selecao-sub-20/a/selecao-sub-20-x-estados-unidos-vitoria-2-a-0-amistoso",
-  "evidence": "CBF, 01/10 às 14h51: placar, autores dos gols, local, resultado anterior e agenda contra México. Conteúdo indexado da página oficial conferido; abertura direta instável."
+  "evidence": "CBF, 01/10 às 14h51: placar, autores dos gols, local, resultado anterior e agenda contra México. Conteúdo indexado da página oficial conferido; abertura direta instável.",
+  "body": "O Brasil venceu os Estados Unidos por 2 a 0 em 1º de outubro de 2026, na Pinatar Arena, em San Pedro del Pinatar, na Espanha. Igor Felisberto e Heittor marcaram no segundo tempo, segundo o relato da CBF.\n\nFoi a segunda vitória brasileira na série de amistosos no país, após o 4 a 1 sobre a Dinamarca. O próximo compromisso informado pela CBF é contra o México, em 4 de outubro, às 6h de Brasília, novamente na Pinatar Arena.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261001-18-02-brasil-vence-eua-sub20)"
 }

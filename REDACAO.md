@@ -4,8 +4,9 @@
 
 1. A tarefa **Redação Clubismo Off**, no ChatGPT, pesquisa às 0h, 6h, 12h e 18h de Brasília. Prepara até quatro textos por rodada, numerados, com fontes e a assinatura **Redação Clubismo Off**, e salva os rascunhos no GitHub para revisão. Não publica nada.
 2. A fila principal fica no [Pages CMS](https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas), coleção **Fila de notícias**. Ela lê os rascunhos em `content/news/`, sem dividir por assunto, ordenados pelo código da rodada.
-3. Abra a notícia, leia o texto e a fonte, faça as correções, preencha a revisão e a data de publicação, marque as conferências, escolha **Publicado** e salve. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina. Você também pode excluir o rascunho.
-4. Para editar, use o Pages CMS, coleção **Fila de notícias**. Para retirar uma notícia publicada, mude a etapa para **Arquivado** e salve. A fila rápida só exclui rascunhos.
+3. Abra a notícia e leia **Texto da notícia**, que reúne todos os parágrafos em um editor visual. Corrija o que desejar e salve mantendo **Rascunho** ou **Aguardando Bruno**. O link **Ver como ficará no blog** abre a prévia da última versão salva, com título, parágrafos, assinatura, capa e fontes. A prévia não publica nem altera nada. Após novas correções, salve no painel e clique em **Atualizar prévia**.
+4. Para publicar, confira a fonte, preencha a revisão e a data de publicação, marque as conferências, escolha **Publicado** e salve. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina. Você também pode excluir o rascunho.
+5. Para editar, use o Pages CMS, coleção **Fila de notícias**. Para retirar uma notícia publicada, mude a etapa para **Arquivado** e salve. A fila rápida só exclui rascunhos.
 
 **Ligação com a fila:** a tarefa usa o conector GitHub autorizado para criar arquivos em `content/news/`, sempre com `status: revisao`. O contrato está em `REDACAO-AUTOMACAO.md`. Cada gravação deve ser lida de volta antes de confirmar a entrega. Se a tarefa não conseguir salvar, entrega os textos no chat e informa a falha; não afirma que chegaram ao painel. Rascunhos não são exportados para o blog. A aprovação é feita pelo editor.
 
@@ -25,7 +26,7 @@ O repositório é público. Rascunhos não saem nas páginas do blog, mas seus a
 
 Abra `/admin/redacao/` e clique em **Ver uma demonstração**. O exemplo usa clube e atleta fictícios. **Simular postagem** e **Simular exclusão** mostram o fluxo sem fazer chamadas de gravação ao GitHub. Nenhuma notícia de exemplo é adicionada a `content/news/`.
 
-No editor completo: cadastre uma fonte em **Fontes**, confira seu endereço e ative-a. Crie a nota em **Fila de notícias**, preencha título, lead, detalhes e link da fonte, salve como **Rascunho** e depois como **Aguardando Bruno**. Ela aparecerá na fila rápida. O botão Postar preenche assinatura, revisor, horário e os registros de aprovação. Quem usa o editor completo para publicar precisa preencher essas conferências manualmente.
+No editor completo: cadastre uma fonte em **Fontes**, confira seu endereço e ative-a. Crie a nota em **Fila de notícias**, preencha título, **Texto da notícia** e link da fonte, salve como **Rascunho** e depois como **Aguardando Bruno**. Leia a versão diagramada em `/admin/previa/`. O botão Postar da fila opcional preenche assinatura, revisor, horário e os registros de aprovação. Quem usa o editor completo para publicar precisa preencher essas conferências manualmente.
 
 ## Regras editoriais
 
@@ -46,6 +47,8 @@ A validação técnica confere formato, datas, links, fontes cadastradas, revis�
 - Notícias aprovadas ficam em `content/news/` e aparecem em uma lista única em `/ultimas/`, abaixo dos destaques na capa. Não competem pela prioridade dos textos autorais.
 - Fontes ficam em `content/sources/`. O vínculo verifica domínio e caminho, inclusive para perfis sociais. O editor deve conferir a identidade do perfil; um selo sozinho não basta.
 - `scripts/prepare-content.mjs` exporta somente notícias publicadas e validadas. Os arquivos gerados não incluem rascunhos, evidências internas ou dados de revisão.
+- O texto único fica em `body`; a leitura ainda aceita os campos antigos em arquivos não migrados. Quando `body` existe, ele é a única versão usada. Um texto apagado intencionalmente não é substituído por conteúdo antigo.
+- A prévia em `/admin/previa/` consulta o repositório público no navegador e usa o mesmo componente de diagramação da página publicada. Os textos de rascunho não entram no HTML gerado, no payload de notícias ou nas páginas públicas de notícias. A prévia tem instrução de não indexar e só faz leituras; não é uma área privada e não exige token.
 - Uma nota inválida bloqueia a nova publicação do site; a última versão publicada permanece. O erro aparece em GitHub → Actions. Corrija a nota ou volte sua etapa para Rascunho e salve.
 - Os horários públicos usam America/Sao_Paulo. Datas futuras são recusadas; este campo não agenda postagem.
 - A fila grava usando o SHA da versão que você leu. Se outro editor alterou a notícia, a aprovação é recusada e a fila deve ser atualizada.

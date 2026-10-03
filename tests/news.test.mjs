@@ -7,6 +7,8 @@ import { readNews } from '../lib/news-loader.ts';
 import { newsSchema, urlBelongsToSource } from '../lib/news-schema.ts';
 import { assessNewsPolicy } from '../lib/news-policy.ts';
 import { postNews, deleteNewsDraft } from '../lib/news-panel.ts';
+import { newsBody, splitNewsBody } from '../lib/news-copy.ts';
+import { newsPreviewItem } from '../lib/news-preview.ts';
 
 const now = new Date('2026-09-30T22:00:00Z');
 const source = { name:'Clube Exemplo', grade:'A', active:true, baseUrl:'https://clube-exemplo.invalid' };
@@ -102,4 +104,35 @@ test('Excluir é restrito a rascunhos, usa SHA e propaga erros sem confirmar suc
   await assert.rejects(()=>deleteNewsDraft({...entry,data:published},'token',fetcher),/só exclui rascunhos/);
   await assert.rejects(()=>deleteNewsDraft({...entry,path:'content/settings.json'},'token',fetcher),/inválido/);
   await assert.rejects(()=>deleteNewsDraft(entry,'token',async()=>new Response('{}',{status:403})),/recusou/);
+});
+
+test('texto completo substitui os campos antigos e uma exclusão não ressuscita texto antigo', t => {
+  const f=fixture(t);
+  const body='Abertura revisada pelo editor.\n\nDetalhe **corrigido**.\n\nContexto conferido.';
+  f.save({...published,body});
+  const [item]=f.read();
+  assert.equal(item.body,body);
+  assert.equal(item.lead,'Abertura revisada pelo editor.');
+  assert.equal('details' in item,false);
+  assert.deepEqual(splitNewsBody(item.body),{intro:'Abertura revisada pelo editor.',rest:'Detalhe **corrigido**.\n\nContexto conferido.'});
+  f.save({...published,body:''}); assert.throws(f.read,/body/);
+  const {lead,details,...modern}=published;
+  f.save({...modern,body}); assert.equal(f.read()[0].body,body);
+  f.save(published); assert.equal(f.read()[0].body,newsBody(published));
+});
+
+test('prévia preserva texto, foto e fonte sem marcar publicação nem exportar o rascunho', t => {
+  const f=fixture(t);
+  const entry={...draft,body:'Texto completo.\n\nSegundo parágrafo.',image:'/images/campo.jpg',imageAlt:'Campo de futebol',reviewNote:'Aviso para o editor.'};
+  const before=JSON.stringify(entry);
+  const preview=newsPreviewItem(entry,'nota',{[draft.source]:source.name});
+  assert.equal(preview.body,entry.body);
+  assert.equal(preview.image,entry.image);
+  assert.equal(preview.source.name,source.name);
+  assert.equal(preview.publishedAt,'');
+  assert.equal('reviewNote' in preview,false);
+  assert.equal(JSON.stringify(entry),before);
+  f.save(entry); assert.deepEqual(f.read(),[]);
+  const unsafe=newsPreviewItem({...entry,image:'javascript:alert(1)',sourceUrl:'javascript:alert(1)'},'nota',{});
+  assert.equal(unsafe.image,''); assert.equal(unsafe.source.url,'');
 });

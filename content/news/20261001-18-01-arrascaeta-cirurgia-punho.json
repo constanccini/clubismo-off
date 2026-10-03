@@ -3,7 +3,6 @@
   "status": "revisao",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
-  "context": "",
   "sourcePublishedAt": "2026-10-01T12:45-03:00",
   "confirmations": [],
   "author": "Redação Clubismo Off",
@@ -25,10 +24,10 @@
   "imageLicenseUrl": "",
   "ticket": "20261001-18-01",
   "title": "Flamengo informa que Arrascaeta passou por cirurgia no punho esquerdo",
-  "lead": "O Flamengo informou em 1º de outubro de 2026 que Arrascaeta passou por cirurgia para corrigir uma fratura no punho esquerdo. Segundo o clube, o procedimento terminou sem intercorrências.",
-  "details": "A operação foi realizada pelos médicos Roberto Feres, Edson Roderjan e Fernando Sassaki, chefe do departamento médico do Flamengo. O comunicado informa que o meia será acompanhado pelo clube durante a recuperação, mas não estabelece prazo de retorno aos jogos.",
   "type": "lesao",
   "source": "content/sources/flamengo.json",
   "sourceUrl": "https://www.flamengo.com.br/flamengo/noticias/futebol/cirurgia-de-arrascaeta-e-finalizada-com-sucesso",
-  "evidence": "Nota de 01/10 às 12h45: cirurgia para fratura no punho esquerdo, equipe médica e acompanhamento. Sem prazo de retorno no comunicado."
+  "evidence": "Nota de 01/10 às 12h45: cirurgia para fratura no punho esquerdo, equipe médica e acompanhamento. Sem prazo de retorno no comunicado.",
+  "body": "O Flamengo informou em 1º de outubro de 2026 que Arrascaeta passou por cirurgia para corrigir uma fratura no punho esquerdo. Segundo o clube, o procedimento terminou sem intercorrências.\n\nA operação foi realizada pelos médicos Roberto Feres, Edson Roderjan e Fernando Sassaki, chefe do departamento médico do Flamengo. O comunicado informa que o meia será acompanhado pelo clube durante a recuperação, mas não estabelece prazo de retorno aos jogos.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261001-18-01-arrascaeta-cirurgia-punho)"
 }

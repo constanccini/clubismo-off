@@ -1,9 +1,6 @@
 {
   "ticket": "20261003-12-01",
   "title": "Brasil Sub-17 vence a Colômbia por 2 a 0 e termina torneio da UEFA em terceiro",
-  "lead": "A Seleção Brasileira Sub-17 venceu a Colômbia por 2 a 0 neste sábado (3), em Nyon, na Suíça, e terminou o Torneio da Amizade UEFA em terceiro lugar. A CBF publicou o relato da partida às 7h56.",
-  "details": "Eduardo Conceição abriu o placar aos três minutos, após Pape recuperar a bola e dar o passe. João Vitor marcou o segundo gol aos 23 minutos do segundo tempo. A Seleção manteve a vantagem até o apito final.",
-  "context": "O Brasil encerrou a competição com três vitórias e uma derrota. Segundo a CBF, o próximo compromisso da equipe será a Copa do Mundo Sub-17, no Catar, entre 3 e 27 de novembro de 2026; Croácia, Venezuela e Honduras estão no grupo brasileiro.",
   "type": "resultado",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
@@ -30,5 +27,7 @@
   "imageCredit": "",
   "imageSource": "",
   "imageLicense": "",
-  "imageLicenseUrl": ""
+  "imageLicenseUrl": "",
+  "body": "A Seleção Brasileira Sub-17 venceu a Colômbia por 2 a 0 neste sábado (3), em Nyon, na Suíça, e terminou o Torneio da Amizade UEFA em terceiro lugar. A CBF publicou o relato da partida às 7h56.\n\nEduardo Conceição abriu o placar aos três minutos, após Pape recuperar a bola e dar o passe. João Vitor marcou o segundo gol aos 23 minutos do segundo tempo. A Seleção manteve a vantagem até o apito final.\n\nO Brasil encerrou a competição com três vitórias e uma derrota. Segundo a CBF, o próximo compromisso da equipe será a Copa do Mundo Sub-17, no Catar, entre 3 e 27 de novembro de 2026; Croácia, Venezuela e Honduras estão no grupo brasileiro.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261003-12-01-brasil-sub17-vence-colombia)"
 }

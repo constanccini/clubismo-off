@@ -11,7 +11,9 @@ Destino exclusivo: `constanccini/clubismo-off`, branch `main`. A tarefa pesquisa
 
 ## Arquivo da notícia
 
-Crie um arquivo novo `content/news/aaaammdd-hh-nn-titulo-curto.json`, com letras minúsculas sem acentos, números e hífens. O prefixo usa a rodada no horário de Brasília; `ticket` usa `AAAAMMDD-HH-NN`. Se já existir, não sobrescreva. Não inclua HTML, Markdown, imagens dentro dos campos de texto, segredos, dados privados ou alegações não comprovadas. O texto é renderizado como texto simples.
+Crie um arquivo novo `content/news/aaaammdd-hh-nn-titulo-curto.json`, com letras minúsculas sem acentos, números e hífens. O prefixo usa a rodada no horário de Brasília; `ticket` usa `AAAAMMDD-HH-NN`. Se já existir, não sobrescreva. Escreva a notícia inteira em `body`, com parágrafos separados por uma linha em branco. O painel oferece um editor visual e o site aceita Markdown básico; prefira parágrafos simples. Não inclua HTML, imagens dentro do texto, segredos, dados privados ou alegações não comprovadas.
+
+Não divida o texto em campos `lead`, `details` ou `context`, nem escreva esses rótulos dentro da notícia. O primeiro parágrafo informa quem fez o quê e quando; os demais trazem os detalhes e o contexto comprovados. A assinatura, a capa e a fonte são renderizadas a partir de seus próprios campos. Não repita o título, a assinatura ou uma seção de fontes dentro de `body`.
 
 Campos obrigatórios do rascunho:
 
@@ -19,9 +21,8 @@ Campos obrigatórios do rascunho:
 | --- | --- |
 | `ticket` | Código único da rodada e posição |
 | `title` | Manchete factual, até 160 caracteres |
-| `lead` | Quem fez o quê e quando, até 650 caracteres |
-| `details` | Detalhes confirmados, até 1.800 caracteres |
-| `context` | Contexto comprovado, até 1.000 caracteres, ou string vazia |
+| `body` | Texto completo e pronto para leitura, com parágrafos. Até 6.000 caracteres; o limite não é uma meta de tamanho. Não acrescentar fatos para preencher espaço |
+| `preview` | Link Markdown `[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=<nome-do-arquivo-sem-json>)`, usando o nome real escolhido para o arquivo |
 | `type` | Um valor objetivo aceito em `lib/news-policy.ts` |
 | `transferStage` | `oficial`, `negociacao`, `acerto` ou `nao_se_aplica`, conforme a fonte; nunca interesse |
 | `sensitive` | `false`; tema sensível fica fora desta rotina |
@@ -48,4 +49,4 @@ Use `reviewNote` para alertas ao editor, como uma previsão prestes a vencer ou 
 
 Use criação de arquivo, nunca atualização. Leia cada arquivo de volta e confirme conteúdo e `status: revisao`. Os rascunhos aparecem na fila pelo GitHub, independentemente da geração de páginas do blog. Não são publicados no site.
 
-Informe a rodada, uma lista única numerada com os textos e fontes e o endereço `https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas`. Diga quais códigos foram confirmados na fila. Se houver falha, entregue o texto no chat e diga claramente quais não foram salvos. Não finja botões na conversa. No Pages CMS, o editor lê, corrige, completa as conferências de revisão, escolhe **Publicado** e salva; também pode excluir. Não encaminhe Bruno ao painel extra de token. Não envie mensagens para terceiros.
+Informe a rodada, uma lista única numerada com as notícias completas (sem rótulos de lead, detalhes e contexto), as fontes e o endereço `https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas`. Diga quais códigos foram confirmados na fila. Se houver falha, entregue o texto no chat e diga claramente quais não foram salvos. Não finja botões na conversa. No Pages CMS, o editor lê e corrige **Texto da notícia**. Depois de salvar, o link **Ver como ficará no blog** abre a prévia da versão salva. Publicar continua exigindo as conferências, datas e a etapa **Publicado**; também é possível excluir. Não encaminhe Bruno ao painel extra de token. Não envie mensagens para terceiros.

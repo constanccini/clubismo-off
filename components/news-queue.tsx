@@ -3,6 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { connectNewsPanel, loadNewsQueue, postNews, deleteNewsDraft, repository } from "@/lib/news-panel";
 import type { QueueEntry, SourceRecord } from "@/lib/news-panel";
+import { newsBody } from "@/lib/news-copy";
+import { NewsMarkdown } from "@/components/news-markdown";
 
 const example: QueueEntry = { path: "content/news/exemplo-ficticio.json", sha: "", data: {
   ticket: "EXEMPLO-01", status: "revisao", title: "Clube Exemplo renova contrato de atleta até dezembro de 2029",
@@ -74,7 +76,7 @@ export function NewsQueue() {
       <p className="queue-help">Leia o texto e confira as fontes. <strong>{demo ? "Simular postagem" : "Postar"}</strong> confirma sua aprovação desta versão. A assinatura será <strong>Redação Clubismo Off</strong>.</p>
       {!pending.length && <div className="queue-empty"><h2>{demo ? "Demonstração concluída." : "Nenhum rascunho aguardando aprovação."}</h2><p>{demo ? "Na fila real, cada nova notícia aparece neste mesmo formato." : "As notícias verificadas nas rodadas de pesquisa aparecem nesta fila para sua aprovação. Clique em Atualizar fila para buscar novos rascunhos. Uma rodada pode terminar sem novidades relevantes."}</p>{demo && <button onClick={() => { setEntries([example]); setNotice(""); }}>Repetir exemplo</button>}</div>}
       {pending.map((entry, index) => <article className="queue-card" key={entry.path}><header><span className="queue-number">{String(index + 1).padStart(2, "0")}</span><div><span className="eyebrow">{field(entry, "ticket") || entry.path.split("/").pop()?.replace(".json", "")}</span><h2>{field(entry, "title") || "Rascunho sem título"}</h2></div></header>
-        <div className="queue-copy"><p className="queue-lead">{field(entry, "lead")}</p><p>{field(entry, "details")}</p>{field(entry, "context") && <p>{field(entry, "context")}</p>}</div>
+        <div className="queue-copy"><NewsMarkdown>{newsBody(entry.data)}</NewsMarkdown></div>
         <div className="queue-source"><strong>Fonte: </strong>{demo ? "Clube Exemplo — comunicado fictício" : /^https:\/\//.test(field(entry, "sourceUrl")) ? <a href={field(entry, "sourceUrl")} target="_blank" rel="noreferrer">{sources[field(entry, "source")]?.name || "Abrir fonte original"}</a> : "Fonte ainda não informada"}</div>
         {!demo && Array.isArray(entry.data.confirmations) && entry.data.confirmations.map((item: { source?: string; url?: string }, i: number) => item.url?.startsWith("https://") ? <p className="queue-source" key={i}>Fonte complementar: <a href={item.url} target="_blank" rel="noreferrer">{sources[item.source || ""]?.name || "Abrir fonte"}</a></p> : null)}
         <p className="queue-byline">Redação Clubismo Off</p><div className="queue-actions"><button className="queue-primary" disabled={busy} onClick={() => act(entry, "post")}>{demo ? "Simular postagem" : "Postar"}</button><button className="queue-delete" disabled={busy} onClick={() => act(entry, "delete")}>{demo ? "Simular exclusão" : "Excluir"}</button>{!demo && <a href="https://app.pagescms.org">Editar no painel</a>}</div>

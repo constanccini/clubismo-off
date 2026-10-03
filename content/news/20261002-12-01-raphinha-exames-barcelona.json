@@ -3,7 +3,6 @@
   "status": "revisao",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
-  "context": "",
   "sourcePublishedAt": "",
   "confirmations": [
     {
@@ -31,10 +30,10 @@
   "imageLicenseUrl": "",
   "ticket": "20261002-12-01",
   "title": "Exames de Raphinha não apontam lesão, informa a agência EFE",
-  "lead": "Os exames realizados por Raphinha no Barcelona em 2 de outubro de 2026 não apontaram lesão, segundo reportagem da agência EFE publicada pelo El Universal. A agência atribui a informação a fontes do clube catalão.",
-  "details": "O atacante foi examinado após apresentar edema na coxa direita durante o amistoso do Brasil contra a Austrália. A reportagem do Mundo Deportivo também informa que os exames descartaram lesão. Não há, nas fontes consultadas, uma escalação oficial que confirme sua participação no próximo jogo do Barcelona.",
   "type": "lesao",
   "source": "content/sources/efe-el-universal.json",
   "sourceUrl": "https://www.eluniversal.com.co/deportes/2026/10/02/pruebas-medicas-buenas-noticias-para-raphinha-figura-del-barcelona-de-espana/",
-  "evidence": "Reportagem assinada EFE em 02/10/2026: exames e ausência de lesão atribuídos a fontes do Barcelona. Não foi localizado comunicado médico público do clube. Horário sem fuso explícito não foi convertido."
+  "evidence": "Reportagem assinada EFE em 02/10/2026: exames e ausência de lesão atribuídos a fontes do Barcelona. Não foi localizado comunicado médico público do clube. Horário sem fuso explícito não foi convertido.",
+  "body": "Os exames realizados por Raphinha no Barcelona em 2 de outubro de 2026 não apontaram lesão, segundo reportagem da agência EFE publicada pelo El Universal. A agência atribui a informação a fontes do clube catalão.\n\nO atacante foi examinado após apresentar edema na coxa direita durante o amistoso do Brasil contra a Austrália. A reportagem do Mundo Deportivo também informa que os exames descartaram lesão. Não há, nas fontes consultadas, uma escalação oficial que confirme sua participação no próximo jogo do Barcelona.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261002-12-01-raphinha-exames-barcelona)"
 }

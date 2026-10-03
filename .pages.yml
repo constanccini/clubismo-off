@@ -136,7 +136,7 @@ content:
     view:
       primary: title
       fields: [ticket, title, status]
-      search: [title, lead, details]
+      search: [title, body]
       sort: [ticket, publishedAt, title, status]
       default:
         sort: ticket
@@ -159,6 +159,25 @@ content:
         type: string
         required: true
         description: Até 160 caracteres. Sem opinião, adjetivos promocionais ou clickbait.
+      - name: body
+        label: Texto da notícia
+        type: rich-text
+        required: true
+        description: A notícia completa, na ordem em que será lida. Edite os parágrafos aqui. O primeiro parágrafo aparece em destaque abaixo do título; a assinatura, a foto e a fonte são incluídas automaticamente.
+        options:
+          format: markdown
+          media: false
+          switcher: false
+      - name: preview
+        label: Ver como ficará no blog
+        type: rich-text
+        readonly: true
+        default: "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/)"
+        description: Salve suas alterações como rascunho ou aguardando revisão antes de abrir. A prévia mostra a última versão salva, sem publicar.
+        options:
+          format: markdown
+          media: false
+          switcher: false
       - name: status
         label: Etapa
         type: select
@@ -215,18 +234,6 @@ content:
         type: boolean
         default: false
         description: "Acusações, política, finanças complexas, investigações, bastidores, conflitos, arbitragem, legislação ou interpretação: nunca permitir automação, mesmo em nota oficial."
-      - name: lead
-        label: Lead — quem fez o quê e quando
-        type: text
-        description: Até 650 caracteres. Informe apenas o que a fonte sustenta.
-      - name: details
-        label: Detalhes objetivos
-        type: text
-        description: "Até 1.800 caracteres. Não presuma valores, duração, diagnóstico ou motivo. Quando relevante, escreva: O comunicado não informa os valores."
-      - name: context
-        label: Contexto factual — opcional
-        type: text
-        description: Até 1.000 caracteres. Se usar fatos de outra fonte, acrescente-a nas confirmações e fontes complementares.
       - name: image
         label: Foto de capa
         type: image

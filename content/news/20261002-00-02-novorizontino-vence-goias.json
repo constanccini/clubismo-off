@@ -3,7 +3,6 @@
   "status": "revisao",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
-  "context": "",
   "sourcePublishedAt": "",
   "confirmations": [],
   "author": "Redação Clubismo Off",
@@ -25,10 +24,10 @@
   "imageLicenseUrl": "",
   "ticket": "20261002-00-02",
   "title": "Novorizontino vence o Goiás por 3 a 0 e chega a 54 pontos na Série B",
-  "lead": "O Novorizontino venceu o Goiás por 3 a 0 em 1º de outubro de 2026, no Estádio Jorge Ismael de Biasi, em Novo Horizonte, pela 31ª rodada da Série B do Campeonato Brasileiro.",
-  "details": "Rômulo, Robson e Juninho marcaram os gols. O goleiro Jordi defendeu uma cobrança de pênalti de Tadeu. Com a vitória, o Novorizontino chegou a 54 pontos, de acordo com o balanço publicado pelo clube.",
   "type": "resultado",
   "source": "content/sources/novorizontino.json",
   "sourceUrl": "https://www.gremionovorizontino.com.br/2026/10/02/novorizontino-domina-goleia-o-goias-no-jorjao-e-dorme-na-vice-lideranca-do-brasileirao-b/",
-  "evidence": "Assessoria do Novorizontino, página de 02/10/2026: jogo em 01/10, 3 a 0, goleadores, pênalti defendido por Jordi e 54 pontos."
+  "evidence": "Assessoria do Novorizontino, página de 02/10/2026: jogo em 01/10, 3 a 0, goleadores, pênalti defendido por Jordi e 54 pontos.",
+  "body": "O Novorizontino venceu o Goiás por 3 a 0 em 1º de outubro de 2026, no Estádio Jorge Ismael de Biasi, em Novo Horizonte, pela 31ª rodada da Série B do Campeonato Brasileiro.\n\nRômulo, Robson e Juninho marcaram os gols. O goleiro Jordi defendeu uma cobrança de pênalti de Tadeu. Com a vitória, o Novorizontino chegou a 54 pontos, de acordo com o balanço publicado pelo clube.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261002-00-02-novorizontino-vence-goias)"
 }

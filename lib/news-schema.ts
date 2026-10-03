@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { newsTypes, transferStages } from "./news-policy.ts";
 import type { NewsType } from "./news-policy.ts";
+import { newsBody } from "./news-copy.ts";
 
 const optionalText = z.preprocess(value => value ?? "", z.string().trim());
 const text = z.string().trim().min(1, "Preencha este campo.");
@@ -26,8 +27,11 @@ export const sourceSchema = z.object({
   active: z.boolean().default(false),
 });
 const confirmationSchema = z.object({ source: sourceRef, url: safeUrl, evidence: text });
-export const newsSchema = z.object({
-  title: text.max(160), lead: text.max(650), details: text.max(1800), context: optionalText.refine(value => value.length <= 1000, "Limite o contexto a 1.000 caracteres."),
+export const newsSchema = z.preprocess(value => {
+  if (!value || typeof value !== "object" || Array.isArray(value) || "body" in value) return value;
+  return { ...value, body: newsBody(value as Record<string, unknown>) };
+}, z.object({
+  title: text.max(160), body: text.max(6000, "Limite a notícia a 6.000 caracteres."),
   type: z.enum(Object.keys(newsTypes) as [NewsType, ...NewsType[]]),
   transferStage: z.enum(Object.keys(transferStages) as [keyof typeof transferStages, ...(keyof typeof transferStages)[]]).default("nao_se_aplica"),
   sensitive: z.boolean().default(false),
@@ -44,10 +48,10 @@ export const newsSchema = z.object({
   sourceChecked: z.literal(true, { errorMap: () => ({ message: "Confira a fonte original e confirme a revisão." }) }),
   factsChecked: z.literal(true, { errorMap: () => ({ message: "Confira cada dado, incluindo datas e informações ausentes." }) }),
   styleChecked: z.literal(true, { errorMap: () => ({ message: "Revise neutralidade, atribuição e ausência de especulação." }) }),
-}).refine(item => !item.image || !!item.imageAlt, { path: ["imageAlt"], message: "Descreva a imagem de capa." });
+}).refine(item => !item.image || !!item.imageAlt, { path: ["imageAlt"], message: "Descreva a imagem de capa." }));
 
 export type PublicNews = NewsImageData & {
-  slug: string; title: string; lead: string; details: string; context: string; type: NewsType;
+  slug: string; title: string; body: string; lead: string; type: NewsType;
   transferStage: keyof typeof transferStages; author: string; publishedAt: string; updatedAt: string; correction: string;
   source: { name: string; url: string; publishedAt: string };
   confirmations: { name: string; url: string }[];

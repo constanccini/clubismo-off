@@ -4,6 +4,7 @@ import { assessNewsPolicy } from "./news-policy.ts";
 import type { SourceGrade } from "./news-policy.ts";
 import { sourceSchema, newsSchema, urlBelongsToSource, canonicalSourceUrl } from "./news-schema.ts";
 import type { PublicNews } from "./news-schema.ts";
+import { newsSummary } from "./news-copy.ts";
 export type { PublicNews } from "./news-schema.ts";
 
 export function readNews(directory = resolve(process.cwd(), "content/news"), sourcesDirectory = resolve(process.cwd(), "content/sources"), now = Date.now()): PublicNews[] {
@@ -49,7 +50,7 @@ export function readNews(directory = resolve(process.cwd(), "content/news"), sou
       seen.set(key, name);
       // Explicit allowlist: source excerpts, reviewer data, grades and drafts
       // never enter the public build payload (the GitHub repository is public).
-      return { slug, title: n.title, lead: n.lead, details: n.details, context: n.context, type: n.type, transferStage: n.transferStage,
+      return { slug, title: n.title, body: n.body, lead: newsSummary(n.body), type: n.type, transferStage: n.transferStage,
         author: n.author, publishedAt: n.publishedAt, updatedAt: n.updatedAt, correction: n.correction,
         image: n.image, imageAlt: n.imageAlt, imageCaption: n.imageCaption, imageCredit: n.imageCredit,
         imageSource: n.imageSource, imageLicense: n.imageLicense, imageLicenseUrl: n.imageLicenseUrl,

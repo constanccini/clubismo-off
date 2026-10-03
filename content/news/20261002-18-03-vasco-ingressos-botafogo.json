@@ -3,7 +3,6 @@
   "status": "revisao",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
-  "context": "",
   "sourcePublishedAt": "2026-10-02T13:14-03:00",
   "confirmations": [
     {
@@ -31,10 +30,10 @@
   "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
   "ticket": "20261002-18-03",
   "title": "Ingressos do Vasco para clássico no Nilton Santos esgotam, informa ge",
-  "lead": "Os ingressos destinados à torcida do Vasco para o clássico contra o Botafogo se esgotaram, segundo reportagem do ge publicada em 2 de outubro de 2026. O veículo informa que os 4 mil bilhetes do Setor Sul do Nilton Santos foram adquiridos por sócios vascaínos.",
-  "details": "A partida está marcada para 7 de outubro, às 20h30, pela 29ª rodada do Campeonato Brasileiro, conforme o serviço oficial divulgado pelo Botafogo. O esgotamento relatado diz respeito ao setor da torcida visitante, não à capacidade total do estádio.",
   "type": "partida",
   "source": "content/sources/ge.json",
   "sourceUrl": "https://ge.globo.com/google/amp/futebol/times/vasco/noticia/2026/10/02/torcida-do-vasco-esgota-ingressos-para-jogo-contra-botafogo-em-poucas-horas.ghtml",
-  "evidence": "ge/Sergio Santana, 02/10 às 13h14: 4 mil ingressos visitantes vendidos a sócios. Botafogo confirma data, horário e Setor Sul; não confirma esgotamento nessa página."
+  "evidence": "ge/Sergio Santana, 02/10 às 13h14: 4 mil ingressos visitantes vendidos a sócios. Botafogo confirma data, horário e Setor Sul; não confirma esgotamento nessa página.",
+  "body": "Os ingressos destinados à torcida do Vasco para o clássico contra o Botafogo se esgotaram, segundo reportagem do ge publicada em 2 de outubro de 2026. O veículo informa que os 4 mil bilhetes do Setor Sul do Nilton Santos foram adquiridos por sócios vascaínos.\n\nA partida está marcada para 7 de outubro, às 20h30, pela 29ª rodada do Campeonato Brasileiro, conforme o serviço oficial divulgado pelo Botafogo. O esgotamento relatado diz respeito ao setor da torcida visitante, não à capacidade total do estádio.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261002-18-03-vasco-ingressos-botafogo)"
 }

@@ -1,9 +1,6 @@
 {
   "ticket": "20261003-06-01",
   "title": "Fortaleza e Náutico empatam por 1 a 1 pela Série B",
-  "lead": "Fortaleza e Náutico empataram por 1 a 1 na noite de sexta-feira (2), na Arena Castelão, pela 31ª rodada do Campeonato Brasileiro Série B. O clube cearense publicou o relato da partida às 00h45 deste sábado (3).",
-  "details": "Vinícius abriu o placar para o Náutico aos quatro minutos do primeiro tempo. Luiz Fernando empatou para o Fortaleza aos 42 minutos da mesma etapa. O placar permaneceu inalterado até o apito final.",
-  "context": "O Fortaleza voltará a campo na quarta-feira (7), contra o América-MG, na Arena Independência, em Belo Horizonte, conforme a publicação do clube.",
   "type": "resultado",
   "transferStage": "nao_se_aplica",
   "sensitive": false,
@@ -30,5 +27,7 @@
   "imageCredit": "",
   "imageSource": "",
   "imageLicense": "",
-  "imageLicenseUrl": ""
+  "imageLicenseUrl": "",
+  "body": "Fortaleza e Náutico empataram por 1 a 1 na noite de sexta-feira (2), na Arena Castelão, pela 31ª rodada do Campeonato Brasileiro Série B. O clube cearense publicou o relato da partida às 00h45 deste sábado (3).\n\nVinícius abriu o placar para o Náutico aos quatro minutos do primeiro tempo. Luiz Fernando empatou para o Fortaleza aos 42 minutos da mesma etapa. O placar permaneceu inalterado até o apito final.\n\nO Fortaleza voltará a campo na quarta-feira (7), contra o América-MG, na Arena Independência, em Belo Horizonte, conforme a publicação do clube.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261003-06-01-fortaleza-empata-nautico)"
 }
