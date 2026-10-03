@@ -51,6 +51,8 @@ export function readNews(directory = resolve(process.cwd(), "content/news"), sou
       // never enter the public build payload (the GitHub repository is public).
       return { slug, title: n.title, lead: n.lead, details: n.details, context: n.context, type: n.type, transferStage: n.transferStage,
         author: n.author, publishedAt: n.publishedAt, updatedAt: n.updatedAt, correction: n.correction,
+        image: n.image, imageAlt: n.imageAlt, imageCaption: n.imageCaption, imageCredit: n.imageCredit,
+        imageSource: n.imageSource, imageLicense: n.imageLicense, imageLicenseUrl: n.imageLicenseUrl,
         source: { name: source.name, url: n.sourceUrl, publishedAt: n.sourcePublishedAt },
         confirmations: confirmations.map(item => ({ name: item.record.name, url: item.url })),
       } satisfies PublicNews;

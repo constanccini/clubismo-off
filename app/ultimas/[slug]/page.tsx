@@ -6,6 +6,7 @@ import { Masthead, Footer } from "@/components/editorial";
 import { news, findNews } from "@/lib/news";
 import { formatNewsTime } from "@/lib/news-policy";
 import { settings } from "@/lib/settings";
+import { NewsImage } from "@/components/news-image";
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 export function generateStaticParams() { return news.length ? news.map(item => ({ slug: item.slug })) : [{ slug: "__empty__" }]; }
@@ -20,6 +21,7 @@ export default async function NewsPage({ params }: Props) {
     <Link href="/ultimas" className="back-link"><ArrowLeft size={15} /> Todas as notícias</Link>
     <article><header className="article-heading"><div className="category-label"><Link href="/ultimas">Últimas</Link>{item.transferStage === "oficial" && <span>Status: Oficial</span>}</div><h1>{item.title}</h1>
       <p className="article-deck">{item.lead}</p><div className="article-byline"><div className="article-meta"><span>{item.author}</span><time dateTime={item.publishedAt}>{formatNewsTime(item.publishedAt, true)} · Brasília</time></div></div></header>
+      <NewsImage item={item} />
       <div className="article-body news-body"><p>{item.details}</p>{item.context && <p>{item.context}</p>}
         <aside className="news-sources" aria-label="Fontes da notícia"><strong>Fonte original</strong><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.name} <ArrowUpRight size={15} /></a>
           {item.source.publishedAt && <small>Fonte publicada em {formatNewsTime(item.source.publishedAt, true)} · Brasília.</small>}

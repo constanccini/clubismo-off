@@ -3,17 +3,21 @@
 ## O fluxo do Bruno
 
 1. A tarefa **Redação Clubismo Off**, no ChatGPT, pesquisa às 0h, 6h, 12h e 18h de Brasília. Prepara até quatro textos por rodada, numerados, com fontes e a assinatura **Redação Clubismo Off**, e salva os rascunhos no GitHub para revisão. Não publica nada.
-2. A fila do blog fica em `/admin/redacao/`. Ela lê os rascunhos já salvos em `content/news/`, sem dividir por assunto. O número da rodada é permanente; a numeração visual da fila pode mudar após uma exclusão.
-3. Leia o texto e abra a fonte. **Postar** registra sua aprovação e envia a alteração ao GitHub. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina com sucesso. **Excluir** remove o rascunho da fila; o histórico do GitHub permite recuperá-lo.
+2. A fila principal fica no [Pages CMS](https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas), coleção **Fila de notícias**. Ela lê os rascunhos em `content/news/`, sem dividir por assunto, ordenados pelo código da rodada.
+3. Abra a notícia, leia o texto e a fonte, faça as correções, preencha a revisão e a data de publicação, marque as conferências, escolha **Publicado** e salve. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina. Você também pode excluir o rascunho.
 4. Para editar, use o Pages CMS, coleção **Fila de notícias**. Para retirar uma notícia publicada, mude a etapa para **Arquivado** e salve. A fila rápida só exclui rascunhos.
 
 **Ligação com a fila:** a tarefa usa o conector GitHub autorizado para criar arquivos em `content/news/`, sempre com `status: revisao`. O contrato está em `REDACAO-AUTOMACAO.md`. Cada gravação deve ser lida de volta antes de confirmar a entrega. Se a tarefa não conseguir salvar, entrega os textos no chat e informa a falha; não afirma que chegaram ao painel. Rascunhos não são exportados para o blog. A aprovação é feita pelo editor.
 
-## Primeiro acesso à fila
+## Imagens e alertas no Pages CMS
+
+Leia **Atenção antes de publicar**, quando preenchido. O campo registra observações de atualidade e não aparece na matéria. Capas são opcionais; legenda, autor, fonte e licença acompanham a fotografia. Fotos de arquivo devem informar o ano. A prévia de Brasil x Estados Unidos de 01/10 foi recuperada como **Rascunho**, com aviso de jogo encerrado; os outros 13 textos da importação aguardam revisão.
+
+## Tela opcional de aprovação rápida
 
 O blog permanece no GitHub Pages, sem servidor novo. A fila usa a API do GitHub diretamente do navegador. Conecte um token de acesso restrito a `constanccini/clubismo-off`, com **Contents: Read and write**. O token fica somente na memória da aba: não vai para o código, arquivos, endereço, cookies, armazenamento do navegador ou logs. Ao recarregar ou sair, conecte novamente. Nunca envie o token pelo chat.
 
-O Pages CMS continua disponível com seu acesso atual, como alternativa. A autenticação dele não é compartilhada com esta fila, pois são sites diferentes. A integração GitHub usada pelo assistente também é separada do token usado pelo editor.
+O Pages CMS é o painel principal escolhido por Bruno e usa seu acesso já conectado ao GitHub, sem exigir token adicional. A autenticação dele não é compartilhada com esta fila, pois são sites diferentes. A integração GitHub usada pelo assistente também é separada do token usado pelo editor.
 
 O repositório é público. Rascunhos não saem nas páginas do blog, mas seus arquivos e histórico são públicos no GitHub. Não incluir dados confidenciais nos campos de conferência.
 

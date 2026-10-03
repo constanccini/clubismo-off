@@ -38,6 +38,18 @@ test('publicação exige três conferências, revisor e fonte ativa vinculada ao
   }
   f.save(published); f.saveSource({...source,active:false}); assert.throws(f.read,/desativada/);
 });
+test('capas mantêm créditos públicos e observações editoriais ficam fora da exportação', t => {
+  const f=fixture(t);
+  const withImage={...published,image:'/images/campo.jpg',imageAlt:'Gramado em foto de arquivo.',imageCaption:'Arquivo de 2024.',imageCredit:'Fotógrafo',imageSource:'https://commons.wikimedia.org/wiki/File:Campo.jpg',imageLicense:'CC BY 4.0',imageLicenseUrl:'https://creativecommons.org/licenses/by/4.0/',reviewNote:'Conferir a atualidade antes de publicar.'};
+  f.save(withImage);
+  const [item]=f.read();
+  assert.equal(item.image,withImage.image);
+  assert.equal(item.imageCredit,'Fotógrafo');
+  assert.equal(item.imageLicenseUrl,withImage.imageLicenseUrl);
+  assert.equal('reviewNote' in item,false);
+  f.save({...withImage,imageAlt:''}); assert.throws(f.read,/imageAlt/);
+  f.save({...withImage,image:'javascript:alert(1)'}); assert.throws(f.read,/Escolha uma imagem/);
+});
 test('fonte A não libera tema sensível; B é revisão; C requer confirmação; D bloqueia',t=>{
   const base={grade:'A',type:'renovacao',transferStage:'oficial',sensitive:false,confirmedByOfficial:false};
   assert.equal(assessNewsPolicy(base).futureAutomatic,true);

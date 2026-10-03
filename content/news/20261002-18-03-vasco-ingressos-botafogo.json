@@ -1,0 +1,40 @@
+{
+  "origin": "redacao",
+  "status": "revisao",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "context": "",
+  "sourcePublishedAt": "2026-10-02T13:14-03:00",
+  "confirmations": [
+    {
+      "source": "content/sources/botafogo.json",
+      "url": "https://botafogo.com.br/noticias/ingressos-botafogo-x-vasco-br26",
+      "evidence": "Serviço oficial de 29/09 confirma jogo em 07/10 às 20h30 e Setor Sul para o Vasco. Não confirma esgotamento."
+    }
+  ],
+  "author": "Redação Clubismo Off",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false,
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewNote": "FONTE B — o esgotamento é atribuído ao ge. Não escrever que o estádio inteiro esgotou. Conferir se houve liberação posterior de ingressos antes de publicar.",
+  "image": "/images/nilton-santos-arquivo.jpg",
+  "imageAlt": "Vista externa do Estádio Nilton Santos em foto de arquivo de maio de 2024.",
+  "imageCaption": "Vista externa do Nilton Santos em foto de arquivo de maio de 2024.",
+  "imageCredit": "Famacruz",
+  "imageSource": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Ol%C3%ADmpico_Nilton_Santos,_Clube_Botafogo_de_Futebol_e_Regatas_(Acesso_Norte).jpg",
+  "imageLicense": "CC0 1.0",
+  "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "ticket": "20261002-18-03",
+  "title": "Ingressos do Vasco para clássico no Nilton Santos esgotam, informa ge",
+  "lead": "Os ingressos destinados à torcida do Vasco para o clássico contra o Botafogo se esgotaram, segundo reportagem do ge publicada em 2 de outubro de 2026. O veículo informa que os 4 mil bilhetes do Setor Sul do Nilton Santos foram adquiridos por sócios vascaínos.",
+  "details": "A partida está marcada para 7 de outubro, às 20h30, pela 29ª rodada do Campeonato Brasileiro, conforme o serviço oficial divulgado pelo Botafogo. O esgotamento relatado diz respeito ao setor da torcida visitante, não à capacidade total do estádio.",
+  "type": "partida",
+  "source": "content/sources/ge.json",
+  "sourceUrl": "https://ge.globo.com/google/amp/futebol/times/vasco/noticia/2026/10/02/torcida-do-vasco-esgota-ingressos-para-jogo-contra-botafogo-em-poucas-horas.ghtml",
+  "evidence": "ge/Sergio Santana, 02/10 às 13h14: 4 mil ingressos visitantes vendidos a sócios. Botafogo confirma data, horário e Setor Sul; não confirma esgotamento nessa página."
+}

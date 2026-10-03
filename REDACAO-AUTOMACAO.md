@@ -11,7 +11,7 @@ Destino exclusivo: `constanccini/clubismo-off`, branch `main`. A tarefa pesquisa
 
 ## Arquivo da notícia
 
-Crie um arquivo novo `content/news/aaaammdd-hh-nn-titulo-curto.json`, com letras minúsculas sem acentos, números e hífens. O prefixo usa a rodada no horário de Brasília; `ticket` usa `AAAAMMDD-HH-NN`. Se já existir, não sobrescreva. Não inclua HTML, Markdown, imagens, segredos, dados privados ou alegações não comprovadas. O texto é renderizado como texto simples.
+Crie um arquivo novo `content/news/aaaammdd-hh-nn-titulo-curto.json`, com letras minúsculas sem acentos, números e hífens. O prefixo usa a rodada no horário de Brasília; `ticket` usa `AAAAMMDD-HH-NN`. Se já existir, não sobrescreva. Não inclua HTML, Markdown, imagens dentro dos campos de texto, segredos, dados privados ou alegações não comprovadas. O texto é renderizado como texto simples.
 
 Campos obrigatórios do rascunho:
 
@@ -38,8 +38,14 @@ Campos obrigatórios do rascunho:
 
 Para contratação, renovação, empréstimo ou rescisão, a etapa deve corresponder ao fato confirmado; nos outros tipos use `nao_se_aplica`. `oficial` exige fonte A ou confirmação oficial adicional. Contratação encaminhada não é contratação concluída. Não inclua boatos.
 
+## Imagens e atualidade
+
+O painel aceita os campos opcionais `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense` e `imageLicenseUrl`. A tarefa pode referenciar uma foto já existente em `public/images/`, após conferir pertinência, autor e licença; não altera nem envia arquivos de mídia nesta rotina. Sem imagem adequada, deixe os campos vazios. Nunca invente uma imagem ou um endereço. Fotografias de arquivo devem ter ano e contexto na legenda e não podem ser apresentadas como registro do fato atual.
+
+Use `reviewNote` para alertas ao editor, como uma previsão prestes a vencer ou atribuição a fonte secundária. Esse campo não aparece no blog. Datas de publicação e revisão continuam reservadas ao editor: o código da rodada não é a data de publicação.
+
 ## Conferência e entrega
 
 Use criação de arquivo, nunca atualização. Leia cada arquivo de volta e confirme conteúdo e `status: revisao`. Os rascunhos aparecem na fila pelo GitHub, independentemente da geração de páginas do blog. Não são publicados no site.
 
-Informe a rodada, uma lista única numerada com os textos e fontes e o endereço `https://constanccini.github.io/clubismo-off/admin/redacao/`. Diga quais códigos foram confirmados na fila. Se houver falha, entregue o texto no chat e diga claramente quais não foram salvos. Não finja botões na conversa. O botão **Postar** fica na fila e exige acesso de editor. Não envie mensagens para terceiros.
+Informe a rodada, uma lista única numerada com os textos e fontes e o endereço `https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas`. Diga quais códigos foram confirmados na fila. Se houver falha, entregue o texto no chat e diga claramente quais não foram salvos. Não finja botões na conversa. No Pages CMS, o editor lê, corrige, completa as conferências de revisão, escolhe **Publicado** e salva; também pode excluir. Não encaminhe Bruno ao painel extra de token. Não envie mensagens para terceiros.

@@ -1,0 +1,40 @@
+{
+  "origin": "redacao",
+  "status": "revisao",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "context": "",
+  "sourcePublishedAt": "",
+  "confirmations": [
+    {
+      "source": "content/sources/mundo-deportivo.json",
+      "url": "https://www.mundodeportivo.com/en/20261002/1004233805/raphinha-injury-update-barcelona-star-cleared-to-face-getafe.html",
+      "evidence": "Reportagem de 02/10 também relata exames sem lesão e informa que o clube não emitiria comunicado médico."
+    }
+  ],
+  "author": "Redação Clubismo Off",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false,
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewNote": "FONTE B — imprensa. A versão anterior foi corrigida para atribuir a informação à EFE. Não tratar como nota oficial do Barcelona nem garantir que o jogador será escalado.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "ticket": "20261002-12-01",
+  "title": "Exames de Raphinha não apontam lesão, informa a agência EFE",
+  "lead": "Os exames realizados por Raphinha no Barcelona em 2 de outubro de 2026 não apontaram lesão, segundo reportagem da agência EFE publicada pelo El Universal. A agência atribui a informação a fontes do clube catalão.",
+  "details": "O atacante foi examinado após apresentar edema na coxa direita durante o amistoso do Brasil contra a Austrália. A reportagem do Mundo Deportivo também informa que os exames descartaram lesão. Não há, nas fontes consultadas, uma escalação oficial que confirme sua participação no próximo jogo do Barcelona.",
+  "type": "lesao",
+  "source": "content/sources/efe-el-universal.json",
+  "sourceUrl": "https://www.eluniversal.com.co/deportes/2026/10/02/pruebas-medicas-buenas-noticias-para-raphinha-figura-del-barcelona-de-espana/",
+  "evidence": "Reportagem assinada EFE em 02/10/2026: exames e ausência de lesão atribuídos a fontes do Barcelona. Não foi localizado comunicado médico público do clube. Horário sem fuso explícito não foi convertido."
+}

@@ -135,11 +135,11 @@ content:
       rename: false
     view:
       primary: title
-      fields: [ticket, title, status, publishedAt]
+      fields: [ticket, title, status]
       search: [title, lead, details]
-      sort: [publishedAt, title, status]
+      sort: [ticket, publishedAt, title, status]
       default:
-        sort: publishedAt
+        sort: ticket
         order: desc
     fields:
       - name: ticket
@@ -150,6 +150,10 @@ content:
         type: string
         default: manual
         hidden: true
+      - name: reviewNote
+        label: Atenção antes de publicar
+        type: text
+        description: Observações de atualidade e conferência para o editor. Este campo não aparece na matéria.
       - name: title
         label: Título factual
         type: string
@@ -223,6 +227,37 @@ content:
         label: Contexto factual — opcional
         type: text
         description: Até 1.000 caracteres. Se usar fatos de outra fonte, acrescente-a nas confirmações e fontes complementares.
+      - name: image
+        label: Foto de capa
+        type: image
+        options:
+          media: fotos
+      - name: imageAlt
+        label: Descrição da foto
+        type: string
+        description: Descreva o que aparece na foto. Preencha quando usar uma capa.
+      - name: imageCaption
+        label: Legenda
+        type: text
+      - name: imageCredit
+        label: Crédito da foto
+        type: string
+      - name: imageSource
+        label: Link da fonte da foto
+        type: string
+        pattern:
+          regex: '^$|^https?://.+'
+          message: Use o endereço completo, começando com https://.
+      - name: imageLicense
+        label: Licença da foto
+        type: string
+        description: Preencha quando a imagem exigir indicação de licença.
+      - name: imageLicenseUrl
+        label: Link da licença
+        type: string
+        pattern:
+          regex: '^$|^https?://.+'
+          message: Use o endereço completo, começando com https://.
       - name: source
         label: Fonte original cadastrada
         type: reference

@@ -1,0 +1,40 @@
+{
+  "origin": "redacao",
+  "status": "revisao",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "context": "",
+  "sourcePublishedAt": "",
+  "confirmations": [
+    {
+      "source": "content/sources/afa.json",
+      "url": "https://www.afa.com.ar/es/posts/el-analisis-de-lionel-scaloni-tras-la-victoria-en-cordoba",
+      "evidence": "AFA identifica Córdoba como local do triunfo sobre a Bolívia."
+    }
+  ],
+  "author": "Redação Clubismo Off",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false,
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewNote": "Notícia de 30/09 recuperada da rodada de 01/10. Texto rechecado nas publicações oficiais da AFA.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "ticket": "20261001-00-02",
+  "title": "Flaco López marca primeiro gol pela Argentina em vitória sobre a Bolívia",
+  "lead": "Flaco López marcou seu primeiro gol pela seleção argentina na vitória por 4 a 0 sobre a Bolívia, em 30 de setembro de 2026. A AFA publicou a confirmação do atacante em seu site oficial.",
+  "details": "Em entrevista após a partida, José Manuel López afirmou que aquele havia sido seu primeiro gol pela seleção e dedicou o resultado à família e aos moradores de San Lorenzo, sua cidade natal. O confronto foi disputado em Córdoba, conforme o relato oficial da entrevista de Lionel Scaloni.",
+  "type": "resultado",
+  "source": "content/sources/afa.json",
+  "sourceUrl": "https://www.afa.com.ar/es/posts/declaraciones-de-los-jugadores-tras-el-triunfo-ante-bolivia",
+  "evidence": "Página da AFA datada de 30/09/2026: placar 4 a 0 e declaração de López identificando o primeiro gol. Horário da publicação não informado."
+}
