@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      payload:
+        description: Aprovação enviada pelo botão Publicar do Pages CMS
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -95,6 +100,12 @@ jobs:
         run: pnpm install --frozen-lockfile --prod=false
       - name: Verificar conteúdo
         run: node --test tests/*.test.mjs
+      - name: Preparar a matéria aprovada no Pages CMS
+        id: publish_news
+        if: github.event_name == 'workflow_dispatch' && inputs.payload != ''
+        run: node scripts/publish-news.mjs
+        env:
+          PAGES_CMS_PAYLOAD: ${{ inputs.payload }}
       - name: Obter endereço do blog
         id: pages
         uses: actions/configure-pages@v5
@@ -102,6 +113,18 @@ jobs:
         run: pnpm run build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      - name: Mover a matéria da Fila para Matérias
+        if: steps.publish_news.outputs.changed == 'true'
+        shell: bash
+        env:
+          SOURCE_PATH: ${{ steps.publish_news.outputs.source_path }}
+          TARGET_PATH: ${{ steps.publish_news.outputs.target_path }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$SOURCE_PATH" "$TARGET_PATH"
+          git commit -m 'Publicar matéria aprovada no Pages CMS'
+          git push origin HEAD:main
       - name: Preparar publicação
         uses: actions/upload-pages-artifact@v4
         with:

@@ -3,10 +3,10 @@
 ## O fluxo do Bruno
 
 1. A tarefa **Redação Clubismo Off**, no ChatGPT, pesquisa às 0h, 6h, 12h e 18h de Brasília. Prepara até quatro textos por rodada, numerados, com fontes e a assinatura **Redação Clubismo Off**, e salva os rascunhos no GitHub para revisão. Não publica nada.
-2. A fila principal fica no [Pages CMS](https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas), coleção **Fila de notícias**. Ela lê os rascunhos em `content/news/`, sem dividir por assunto, ordenados pelo código da rodada.
+2. A fila principal fica no [Pages CMS](https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas), coleção **Fila**. Ela lê os rascunhos em `content/news/`, sem dividir por assunto, ordenados pelo código da rodada.
 3. Abra a notícia e leia **Texto da notícia**, que reúne todos os parágrafos em um editor visual. Corrija o que desejar e salve mantendo **Rascunho** ou **Aguardando Bruno**. O link **Ver como ficará no blog** abre a prévia da última versão salva, com título, parágrafos, assinatura, capa e fontes. A prévia não publica nem altera nada. Após novas correções, salve no painel e clique em **Atualizar prévia**.
-4. Para publicar, confira a fonte, preencha a revisão e a data de publicação, marque as conferências, escolha **Publicado** e salve. A página entra no ar depois que o fluxo **Publicar Clubismo Off** termina. Você também pode excluir o rascunho.
-5. Para editar, use o Pages CMS, coleção **Fila de notícias**. Para retirar uma notícia publicada, mude a etapa para **Arquivado** e salve. A fila rápida só exclui rascunhos.
+4. Após conferir o texto e as fontes, salve e clique em **Publicar**, no topo da notícia. Confirme a publicação da versão salva. O botão registra a aprovação, identifica o editor e preenche os horários. A notícia sai da **Fila**, passa para **Matérias** e entra no site ao concluir o fluxo **Publicar Clubismo Off**. Você também pode excluir um rascunho da Fila.
+5. Para editar uma notícia publicada, abra **Matérias**, faça a alteração e salve. Para retirar do ar, desligue **Visível no blog** e salve; para excluir, use a exclusão da própria matéria. O endereço público continua o mesmo. As notícias retiradas permanecem em Matérias para você poder recuperá-las.
 
 **Ligação com a fila:** a tarefa usa o conector GitHub autorizado para criar arquivos em `content/news/`, sempre com `status: revisao`. O contrato está em `REDACAO-AUTOMACAO.md`. Cada gravação deve ser lida de volta antes de confirmar a entrega. Se a tarefa não conseguir salvar, entrega os textos no chat e informa a falha; não afirma que chegaram ao painel. Rascunhos não são exportados para o blog. A aprovação é feita pelo editor.
 
@@ -14,19 +14,17 @@
 
 Leia **Atenção antes de publicar**, quando preenchido. O campo registra observações de atualidade e não aparece na matéria. Capas são opcionais; legenda, autor, fonte e licença acompanham a fotografia. Fotos de arquivo devem informar o ano. A prévia de Brasil x Estados Unidos de 01/10 foi recuperada como **Rascunho**, com aviso de jogo encerrado; os outros 13 textos da importação aguardam revisão.
 
-## Tela opcional de aprovação rápida
+## Painel e publicação
 
-O blog permanece no GitHub Pages, sem servidor novo. A fila usa a API do GitHub diretamente do navegador. Conecte um token de acesso restrito a `constanccini/clubismo-off`, com **Contents: Read and write**. O token fica somente na memória da aba: não vai para o código, arquivos, endereço, cookies, armazenamento do navegador ou logs. Ao recarregar ou sair, conecte novamente. Nunca envie o token pelo chat.
+O Pages CMS é o painel principal e usa o acesso conectado ao GitHub. Não exige um token adicional. A antiga rota `/admin/redacao/` encaminha para a Fila do Pages CMS.
 
-O Pages CMS é o painel principal escolhido por Bruno e usa seu acesso já conectado ao GitHub, sem exigir token adicional. A autenticação dele não é compartilhada com esta fila, pois são sites diferentes. A integração GitHub usada pelo assistente também é separada do token usado pelo editor.
+**Salvar** guarda a revisão. **Publicar** envia a última versão salva para o blog: alterações ainda não salvas não fazem parte dela. Se alguém alterou a notícia depois que o editor a abriu, o botão recusa a versão antiga; reabra a notícia e confira o texto atual. O resultado da execução aparece junto ao botão no Pages CMS e em GitHub → Actions.
 
-O repositório é público. Rascunhos não saem nas páginas do blog, mas seus arquivos e histórico são públicos no GitHub. Não incluir dados confidenciais nos campos de conferência.
+Para novos rascunhos, cadastre a fonte em **Fontes**, confira o endereço e ative-a. Crie a notícia em **Fila**, preencha título, texto e fonte e salve. O link **Ver como ficará no blog** mostra o texto completo com a mesma diagramação usada na notícia publicada.
 
-## Demonstração sem publicar
+Em **Configurações do blog**, **Mostrar aviso de pré-estreia** controla todos os avisos de demonstração. Está desligado. Para mudar a opção, salve e aguarde a atualização do site. O favicon usa a logo aprovada do Clubismo Off.
 
-Abra `/admin/redacao/` e clique em **Ver uma demonstração**. O exemplo usa clube e atleta fictícios. **Simular postagem** e **Simular exclusão** mostram o fluxo sem fazer chamadas de gravação ao GitHub. Nenhuma notícia de exemplo é adicionada a `content/news/`.
-
-No editor completo: cadastre uma fonte em **Fontes**, confira seu endereço e ative-a. Crie a nota em **Fila de notícias**, preencha título, **Texto da notícia** e link da fonte, salve como **Rascunho** e depois como **Aguardando Bruno**. Leia a versão diagramada em `/admin/previa/`. O botão Postar da fila opcional preenche assinatura, revisor, horário e os registros de aprovação. Quem usa o editor completo para publicar precisa preencher essas conferências manualmente.
+O repositório é público. Rascunhos não entram nas páginas do blog, mas seus arquivos e histórico podem ser lidos no GitHub. Não inclua dados confidenciais na conferência.
 
 ## Regras editoriais
 
@@ -39,29 +37,32 @@ No editor completo: cadastre uma fonte em **Fontes**, confira seu endereço e at
 - Todas as publicações exigem decisão humana nesta versão. A elegibilidade futura é apenas um resultado de classificação; não liga robô, agenda ou publicador.
 - Ao corrigir nota publicada, refaça a revisão, mantenha a data original, informe a data de atualização e explique a correção para o leitor.
 
-A validação técnica confere formato, datas, links, fontes cadastradas, revisão e duplicidade do link original. Ela **não comprova a veracidade do texto nem substitui a leitura humana**. As caixas de revisão registram a decisão do editor; não constituem um sistema independente de permissões por cargo. Uma pessoa com acesso de escrita ao repositório pode alterar arquivos.
+A validação técnica confere formato, datas, links, fontes cadastradas, revisão e duplicidade do link original. Ela **não comprova a veracidade do texto nem substitui a leitura humana**. O clique em Publicar registra a decisão do editor; não constitui um sistema independente de permissões por cargo. Uma pessoa com acesso de escrita ao repositório pode alterar arquivos.
 
 ## Arquitetura e preservação
 
-- Matérias autorais seguem em `content/articles/`, com as categorias, endereços e destaque originais.
-- Notícias aprovadas ficam em `content/news/` e aparecem em uma lista única em `/ultimas/`, abaixo dos destaques na capa. Não competem pela prioridade dos textos autorais.
+- `content/news/` é a Fila de rascunhos. O botão nativo do Pages CMS dispara `pages.yml` com o contexto da notícia, incluindo o SHA do arquivo salvo.
+- `scripts/publish-news.mjs` valida o rascunho e prepara a mudança para `content/articles/`, marcada com `recordType: noticia`. O mesmo commit adiciona a matéria e remove o rascunho; só é enviado após testes e geração das páginas passarem. Uma gravação concorrente recusa o envio, sem sobrescrever a revisão.
+- **Matérias** reúne conteúdo autoral e notícias aprovadas. `settings.content.merge` do Pages CMS preserva os dados de revisão fora dos campos visíveis ao editar.
+- As notícias mantêm seus endereços em `/ultimas/` e a lista abaixo dos destaques na capa. Os textos autorais preservam suas categorias, endereços em `/materia/` e prioridade.
+- O mesmo workflow envia o site após a mudança de conteúdo; não depende de um segundo workflow provocado pelo commit do robô. Repetir uma execução já aprovada apenas refaz a publicação, sem duplicar a notícia ou recolocar no ar uma matéria retirada.
 - Fontes ficam em `content/sources/`. O vínculo verifica domínio e caminho, inclusive para perfis sociais. O editor deve conferir a identidade do perfil; um selo sozinho não basta.
 - `scripts/prepare-content.mjs` exporta somente notícias publicadas e validadas. Os arquivos gerados não incluem rascunhos, evidências internas ou dados de revisão.
 - O texto único fica em `body`; a leitura ainda aceita os campos antigos em arquivos não migrados. Quando `body` existe, ele é a única versão usada. Um texto apagado intencionalmente não é substituído por conteúdo antigo.
 - A prévia em `/admin/previa/` consulta o repositório público no navegador e usa o mesmo componente de diagramação da página publicada. Os textos de rascunho não entram no HTML gerado, no payload de notícias ou nas páginas públicas de notícias. A prévia tem instrução de não indexar e só faz leituras; não é uma área privada e não exige token.
-- Uma nota inválida bloqueia a nova publicação do site; a última versão publicada permanece. O erro aparece em GitHub → Actions. Corrija a nota ou volte sua etapa para Rascunho e salve.
+- Uma nota inválida bloqueia a nova publicação do site; a última versão publicada permanece. O erro aparece em GitHub → Actions. Corrija a nota em Matérias ou desligue Visível no blog e salve. Se o erro ocorrer antes de mover o rascunho, ele permanece na Fila.
 - Os horários públicos usam America/Sao_Paulo. Datas futuras são recusadas; este campo não agenda postagem.
 - A fila grava usando o SHA da versão que você leu. Se outro editor alterou a notícia, a aprovação é recusada e a fila deve ser atualizada.
-- A atualização não recria matérias de exemplo nem fotos apagadas, não muda as configurações do blog e não refaz a identidade visual.
+- A atualização não recria matérias de exemplo nem fotos apagadas e preserva a identidade visual aprovada.
 
 ## Gravação recorrente dos rascunhos
 
-A tarefa pode criar fontes verificadas e notas no repositório, sempre como `status: revisao`, com `origin: redacao` e código `ticket` da rodada. Ela não deve preencher aprovação, mudar para Publicado, excluir conteúdo, alterar código ou repetir uma notícia já enviada. Preserve os slugs e confira o estado atual antes de gravar. Notifique falhas sem alegar que os textos chegaram à fila.
+A tarefa pode criar fontes verificadas e notas no repositório, sempre como `status: revisao`, com `origin: redacao` e código `ticket` da rodada. Ela não deve preencher aprovação, mudar para Publicado, excluir conteúdo, alterar código ou repetir uma notícia já enviada. Preserve os slugs e confira a Fila e Matérias (`content/articles/`, somente leitura para a tarefa) antes de gravar. Notifique falhas sem alegar que os textos chegaram à fila.
 
 O contrato de dados está em `lib/news-schema.ts`; as regras em `lib/news-policy.ts`. Os campos de publicação são preenchidos somente após a aprovação humana. Não usar o agendamento para publicar automaticamente, mesmo para fonte A.
 
 ## Verificação
 
-`node --test tests/*.test.mjs` verifica preservação das matérias, estados da fila, regras de fonte e assunto, datas, duplicidade, gravação com versão, exclusão restrita e erros de acesso. `pnpm run build` exporta as páginas para GitHub Pages. A verificação de chamadas ao GitHub usa respostas simuladas e não equivale a comprovar a permissão da conta real.
+`node --test tests/*.test.mjs` verifica preservação das matérias, estados da fila, regras de fonte e assunto, datas, duplicidade, gravação com versão, exclusão restrita e erros de acesso. `pnpm run build` exporta as páginas para GitHub Pages. Os testes de publicação usam arquivos temporários e verificam movimento, preservação, recusa de revisão antiga, edição, retirada e exclusão. Não publicam notícias reais nem comprovam a permissão da sessão do Pages CMS.
 
 Referências de implementação: [Pages CMS](https://pagescms.org/docs/configuration/content/fields/), [permissões do GitHub](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens), [tarefas agendadas](https://learn.chatgpt.com/docs/automations).

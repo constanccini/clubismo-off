@@ -1,3 +1,7 @@
+settings:
+  content:
+    merge: true
+
 media:
   - name: fotos
     label: Fotos
@@ -7,121 +11,8 @@ media:
     rename: safe
 
 content:
-  - name: materias
-    label: Matérias
-    type: collection
-    path: content/articles
-    format: json
-    subfolders: false
-    filename:
-      template: "{primary}.json"
-      field: false
-    operations:
-      create: true
-      delete: true
-      rename: false
-    view:
-      primary: title
-      fields: [title, published, category, date]
-      search: [title, excerpt, body]
-      sort: [date, title, priority]
-      default:
-        sort: date
-        order: desc
-    fields:
-      - name: title
-        label: Título
-        type: string
-        required: true
-      - name: excerpt
-        label: Resumo da capa
-        type: text
-        required: true
-        description: Uma ou duas frases para apresentar a matéria na capa do blog.
-      - name: category
-        label: Editoria
-        type: select
-        required: true
-        options:
-          values:
-            - {name: opiniao, label: Opinião}
-            - {name: analises, label: Análises}
-            - {name: resenha, label: Resenha}
-            - {name: noticias, label: Notícias}
-      - name: topic
-        label: Assunto
-        type: string
-        description: "Exemplo: Futebol brasileiro ou Dentro do jogo."
-      - name: author
-        label: Assinatura
-        type: string
-        description: Seu nome ou o nome de quem escreveu a matéria.
-      - name: date
-        label: Data da matéria
-        type: date
-        description: Data exibida na assinatura. Este campo não agenda a publicação.
-        options:
-          format: yyyy-MM-dd
-      - name: image
-        label: Foto de capa
-        type: image
-        options:
-          media: fotos
-      - name: imageAlt
-        label: Descrição da foto
-        type: string
-        description: Descreva o que aparece na foto. Preencha quando usar uma capa.
-      - name: imageCaption
-        label: Legenda
-        type: text
-      - name: imageCredit
-        label: Crédito da foto
-        type: string
-      - name: imageSource
-        label: Link da fonte da foto
-        type: string
-        pattern:
-          regex: '^$|^https?://.+'
-          message: Use o endereço completo, começando com https://.
-      - name: imageLicense
-        label: Licença da foto
-        type: string
-        description: Preencha quando a imagem exigir indicação de licença.
-      - name: imageLicenseUrl
-        label: Link da licença
-        type: string
-        pattern:
-          regex: '^$|^https?://.+'
-          message: Use o endereço completo, começando com https://.
-      - name: body
-        label: Texto da matéria
-        type: rich-text
-        required: true
-        options:
-          format: markdown
-          media: fotos
-          switcher: false
-      - name: priority
-        label: Prioridade na capa
-        type: number
-        default: 0
-        description: Use 0 normalmente. Números maiores aparecem primeiro. Em caso de empate, vale a data mais recente.
-        options:
-          min: 0
-          max: 100
-      - name: demo
-        label: Texto de demonstração
-        type: boolean
-        default: false
-        description: Deixe desligado nas suas matérias reais. Os exemplos atuais estão identificados como demonstração.
-      - name: published
-        label: Visível no blog
-        type: boolean
-        default: false
-        description: Ligue e salve para publicar. Desligue e salve para retirar do blog. A atualização acontece após a publicação automática. Conteúdos salvos continuam acessíveis no repositório público do GitHub, mesmo com esta opção desligada.
-
   - name: ultimas
-    label: Fila de notícias
+    label: Fila
     type: collection
     path: content/news
     format: json
@@ -133,6 +24,17 @@ content:
       create: true
       delete: true
       rename: false
+    actions:
+      - name: publicar-noticia
+        label: Publicar
+        scope: entry
+        workflow: pages.yml
+        ref: current
+        cancelable: false
+        confirm:
+          title: Publicar no site?
+          message: Publica a última versão salva e move a notícia da Fila para Matérias. Confira o texto e as fontes e salve suas alterações antes de continuar.
+          button: Publicar
     view:
       primary: title
       fields: [ticket, title, status]
@@ -173,7 +75,7 @@ content:
         type: rich-text
         readonly: true
         default: "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/)"
-        description: Salve suas alterações como rascunho ou aguardando revisão antes de abrir. A prévia mostra a última versão salva, sem publicar.
+        description: Salve a revisão antes de abrir a prévia ou clicar em Publicar no topo. A prévia mostra a última versão salva.
         options:
           format: markdown
           media: false
@@ -182,13 +84,11 @@ content:
         label: Etapa
         type: select
         default: rascunho
-        description: "Rascunho → Aguardando Bruno → Publicado. Todas as fontes exigem revisão humana nesta fase. Arquivado retira a nota do blog."
+        description: "Salvar mantém o texto na Fila. Depois da revisão, use Publicar no topo. A notícia irá para Matérias e entrará no site."
         options:
           values:
             - {name: rascunho, label: Rascunho}
             - {name: revisao, label: Aguardando Bruno}
-            - {name: publicado, label: Publicado}
-            - {name: arquivado, label: Arquivado}
       - name: type
         label: Tipo de informação
         type: select
@@ -312,35 +212,168 @@ content:
         label: Assinatura
         type: string
         default: Redação Clubismo Off
-      - name: reviewer
-        label: Revisado por
+
+  - name: materias
+    label: Matérias
+    type: collection
+    path: content/articles
+    format: json
+    subfolders: false
+    filename:
+      template: "{primary}.json"
+      field: false
+    operations:
+      create: true
+      delete: true
+      rename: false
+    view:
+      primary: title
+      fields: [title, published, category, date]
+      search: [title, excerpt, body]
+      sort: [date, title, priority]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
         type: string
-        description: Preencha ao concluir a revisão, antes de escolher Publicado.
-      - name: reviewedAt
-        label: Data e hora da revisão
+        required: true
+      - name: excerpt
+        label: Resumo da capa
+        type: text
+        required: true
+        description: Resumo para os destaques da capa. Nas notícias da redação, a abertura vem do primeiro parágrafo do texto.
+      - name: category
+        label: Editoria
+        type: select
+        required: true
+        options:
+          values:
+            - {name: opiniao, label: Opinião}
+            - {name: analises, label: Análises}
+            - {name: resenha, label: Resenha}
+            - {name: noticias, label: Notícias}
+      - name: topic
+        label: Assunto
+        type: string
+        description: "Exemplo: Futebol brasileiro ou Dentro do jogo."
+      - name: author
+        label: Assinatura
+        type: string
+        description: Seu nome ou o nome de quem escreveu a matéria.
+      - name: date
+        label: Data da matéria
+        type: date
+        description: Data exibida na assinatura. Este campo não agenda a publicação.
+        options:
+          format: yyyy-MM-dd
+      - name: image
+        label: Foto de capa
+        type: image
+        options:
+          media: fotos
+      - name: imageAlt
+        label: Descrição da foto
+        type: string
+        description: Descreva o que aparece na foto. Preencha quando usar uma capa.
+      - name: imageCaption
+        label: Legenda
+        type: text
+      - name: imageCredit
+        label: Crédito da foto
+        type: string
+      - name: imageSource
+        label: Link da fonte da foto
+        type: string
+        pattern:
+          regex: '^$|^https?://.+'
+          message: Use o endereço completo, começando com https://.
+      - name: imageLicense
+        label: Licença da foto
+        type: string
+        description: Preencha quando a imagem exigir indicação de licença.
+      - name: imageLicenseUrl
+        label: Link da licença
+        type: string
+        pattern:
+          regex: '^$|^https?://.+'
+          message: Use o endereço completo, começando com https://.
+      - name: body
+        label: Texto da matéria
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: fotos
+          switcher: false
+      - name: priority
+        label: Prioridade na capa
+        type: number
+        default: 0
+        description: Use 0 normalmente. Números maiores aparecem primeiro. Em caso de empate, vale a data mais recente.
+        options:
+          min: 0
+          max: 100
+      - name: demo
+        label: Texto de demonstração
+        type: boolean
+        default: false
+        hidden: true
+      - name: published
+        label: Visível no blog
+        type: boolean
+        default: false
+        description: Ligue e salve para publicar. Desligue e salve para retirar do blog. A atualização acontece após a publicação automática. Conteúdos salvos continuam acessíveis no repositório público do GitHub, mesmo com esta opção desligada.
+
+      - name: source
+        label: Fonte original cadastrada
+        type: reference
+        options:
+          collection: fontes
+          value: "{path}"
+          label: "{fields.name} — {fields.grade}"
+          search: "name,fields.name"
+      - name: sourceUrl
+        label: Link exato do comunicado / documento / postagem
+        type: string
+        description: HTTPS. Deve pertencer ao site ou perfil cadastrado. Use o documento específico, não a página inicial.
+      - name: sourcePublishedAt
+        label: Data e hora da fonte — se informadas
         type: date
         default: ""
+        description: Deixe vazio se a fonte não informar. Não estime.
         options:
           time: true
           format: "yyyy-MM-dd'T'HH:mmXXX"
-      - name: sourceChecked
-        label: Abri a fonte original e confirmei autoria e conteúdo
-        type: boolean
-        default: false
-      - name: factsChecked
-        label: Conferi cada fato e não completei dados ausentes
-        type: boolean
-        default: false
-      - name: styleChecked
-        label: Revisei neutralidade e atribuição — sem opinião ou especulação
-        type: boolean
-        default: false
-        description: Ao alterar uma nota, refaça as três conferências e atualize a revisão.
+      - name: evidence
+        label: Fatos conferidos na fonte
+        type: text
+        description: Registre os dados que sustentam a nota com suas palavras. Não copie o artigo inteiro. Este registro não entra na página, mas o repositório é público.
+      - name: confirmations
+        label: Confirmações e fontes complementares
+        type: object
+        list: true
+        description: Obrigatório incluir confirmação oficial quando a fonte principal for imprensa geral (C), ou quando uma fonte secundária sustentar status Oficial.
+        fields:
+          - name: source
+            label: Fonte cadastrada
+            type: reference
+            options:
+              collection: fontes
+              value: "{path}"
+              label: "{fields.name} — {fields.grade}"
+          - name: url
+            label: Link exato
+            type: string
+          - name: evidence
+            label: Quais fatos esta fonte confirma?
+            type: text
       - name: publishedAt
         label: Data e hora da publicação
         type: date
         default: ""
-        description: Preencha ao publicar. O blog exibe horário de Brasília. Data futura é recusada; não há agendamento.
+        description: Preenchida ao publicar. O blog exibe horário de Brasília. Preserve a data original ao corrigir uma notícia.
         options:
           time: true
           format: "yyyy-MM-dd'T'HH:mmXXX"
@@ -412,7 +445,8 @@ content:
       - name: showDemoNotice
         label: Mostrar aviso de pré-estreia
         type: boolean
-        description: Desligue quando substituir as matérias de exemplo pelas suas. Cada exemplo mantém sua identificação individual.
+        default: false
+        description: Controla todos os avisos de demonstração do blog. Desligue e salve para removê-los; aguarde a atualização do site terminar.
       - name: allowIndexing
         label: Permitir aparecer nas buscas
         type: boolean

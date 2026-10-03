@@ -31,7 +31,7 @@ export default async function ArticlePage({ params }: Props) {
         const safeUrl = defaultUrlTransform(url);
         return safeUrl && (key === "src" || safeUrl.startsWith("/")) ? assetPath(safeUrl) : safeUrl;
       }} components={{ h1: ({ children }) => <h2>{children}</h2>, img: ({ src, alt }) => src ? <img src={src} alt={alt || ""} loading="lazy" /> : null }}>{article.body}</Markdown>
-        <span className="article-end" aria-hidden="true" />{article.demo && <aside className="article-disclosure">Texto ilustrativo criado para a pré-estreia do Clubismo Off. Não é uma notícia apurada nem um texto assinado pelo editor.</aside>}
+        <span className="article-end" aria-hidden="true" />{settings.showDemoNotice && article.demo && <aside className="article-disclosure">Texto ilustrativo criado para a pré-estreia do Clubismo Off. Não é uma notícia apurada nem um texto assinado pelo editor.</aside>}
       </div>
     </article><div className="article-return"><Link href="/" className="text-link"><ArrowLeft size={16} /> Mais leituras na capa</Link></div>
   </main><Footer /></>;

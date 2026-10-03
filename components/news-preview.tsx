@@ -9,6 +9,7 @@ const api = "https://api.github.com/repos/constanccini/clubismo-off/contents/";
 type Choice = { slug: string; label: string };
 async function get(path: string, signal: AbortSignal) {
   const response = await fetch(`${api}${path}?ref=main`, { signal, cache: "no-store", headers: { Accept: "application/vnd.github+json" } });
+  if (response.status === 404 && path === "content/news") return [];
   if (!response.ok) throw new Error(response.status === 404 ? "Essa notícia não está mais na fila." : response.status === 403 || response.status === 429 ? "O acesso às prévias está temporariamente limitado. Tente novamente mais tarde; seus textos continuam no painel." : "Não foi possível carregar a versão salva. Tente atualizar a prévia.");
   return response.json();
 }

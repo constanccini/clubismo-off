@@ -39,7 +39,8 @@ export function readArticles(directory = resolve(process.cwd(), "content/article
   if (!existsSync(directory)) return [];
   return readdirSync(directory).filter(name => name.endsWith(".json")).map(name => {
     const raw = JSON.parse(readFileSync(resolve(directory, name), "utf8"));
-    if (raw?.published !== true) return null;
+    // The CMS keeps all published content together. News retains its own feed.
+    if (raw?.published !== true || raw?.recordType === "noticia") return null;
     const slug = name.slice(0, -5);
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`Nome inválido em ${name}: use letras minúsculas, números e hífens.`);
     const parsed = articleSchema.safeParse(raw);
@@ -49,4 +50,3 @@ export function readArticles(directory = resolve(process.cwd(), "content/article
   }).filter((article): article is Article => article !== null)
     .sort((a, b) => b.priority - a.priority || b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 }
-

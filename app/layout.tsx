@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { assetPath } from "@/lib/site";
+import { assetPath, brand } from "@/lib/site";
 import { settings } from "@/lib/settings";
 
 export const metadata: Metadata = {
@@ -8,8 +8,9 @@ export const metadata: Metadata = {
   description: "Futebol brasileiro, opinião, análises e resenha. A paixão fica. O clubismo sai.",
   robots: { index: settings.allowIndexing, follow: true },
   icons: {
-    icon: assetPath("/favicon.svg"),
-    shortcut: assetPath("/favicon.svg"),
+    icon: { url: assetPath(brand.logo), type: "image/png" },
+    shortcut: assetPath(brand.logo),
+    apple: assetPath(brand.logo),
   },
 };
 
