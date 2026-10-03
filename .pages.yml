@@ -33,7 +33,7 @@ content:
         cancelable: false
         confirm:
           title: Publicar no site?
-          message: Publica a última versão salva e move a notícia da Fila para Matérias. Confira o texto e as fontes e salve suas alterações antes de continuar.
+          message: Confira o texto e as fontes e salve suas alterações antes de continuar. A publicação da versão salva pode levar alguns minutos. Aguarde a conclusão da ação e atualize o painel para ver a notícia em Matérias. Não é necessário clicar novamente.
           button: Publicar
     view:
       primary: title
@@ -75,7 +75,7 @@ content:
         type: rich-text
         readonly: true
         default: "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/)"
-        description: Salve a revisão antes de abrir a prévia ou clicar em Publicar no topo. A prévia mostra a última versão salva.
+        description: Salve a revisão antes de abrir a prévia ou clicar em Publicar no topo. A prévia mostra a última versão salva. Após publicar, aguarde a conclusão da ação e atualize o painel.
         options:
           format: markdown
           media: false
@@ -84,7 +84,7 @@ content:
         label: Etapa
         type: select
         default: rascunho
-        description: "Salvar mantém o texto na Fila. Depois da revisão, use Publicar no topo. A notícia irá para Matérias e entrará no site."
+        description: "Salvar mantém o texto na Fila. Depois da revisão, use Publicar no topo. Aguarde a conclusão da ação, que pode levar alguns minutos, e atualize o painel. A notícia aparecerá em Matérias e na seção Últimas do site."
         options:
           values:
             - {name: rascunho, label: Rascunho}
