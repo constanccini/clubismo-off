@@ -1,0 +1,6 @@
+{
+  "name": "UEFA",
+  "grade": "A",
+  "baseUrl": "https://www.uefa.com",
+  "active": true
+}
