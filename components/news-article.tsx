@@ -5,11 +5,12 @@ import { formatNewsTime } from "@/lib/news-policy";
 import { splitNewsBody } from "@/lib/news-copy";
 import { NewsImage } from "@/components/news-image";
 import { NewsMarkdown } from "@/components/news-markdown";
+import { categories } from "@/lib/categories";
 
 export function NewsArticle({ item, preview = false }: { item: PublicNews; preview?: boolean }) {
   const { intro, rest } = splitNewsBody(item.body);
   return <article><header className="article-heading">
-    <div className="category-label"><Link href="/ultimas">Últimas</Link>{item.transferStage === "oficial" && <span>Status: Oficial</span>}</div>
+    <div className="category-label"><Link href={`/categoria/${item.category}`}>{categories[item.category].label}</Link>{item.transferStage === "oficial" && <span>Status: Oficial</span>}</div>
     <h1>{item.title}</h1>
     {intro && <div className="article-deck news-intro"><NewsMarkdown>{intro}</NewsMarkdown></div>}
     <div className="article-byline"><div className="article-meta"><span>{item.author}</span>

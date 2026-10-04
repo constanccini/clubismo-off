@@ -1,5 +1,7 @@
 import type { PublicNews } from "./news-schema.ts";
 import { newsBody, newsSummary } from "./news-copy.ts";
+import { categoryKeys } from "./categories.ts";
+import type { Category } from "./categories.ts";
 
 export const newsEditorUrl = "https://app.pagescms.org/constanccini/clubismo-off/main/collection/ultimas";
 export const newsFilePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -15,6 +17,7 @@ export function newsPreviewItem(data: Record<string, unknown>, slug: string, sou
   const image = string(data.image);
   return {
     slug, title: string(data.title) || "Notícia sem título", body: newsBody(data), lead: newsSummary(newsBody(data)),
+    category: categoryKeys.includes(data.category as Category) ? data.category as Category : "noticias",
     type: "nota_oficial", transferStage: data.transferStage === "oficial" ? "oficial" : "nao_se_aplica",
     author: string(data.author) || "Redação Clubismo Off", publishedAt: date(data.publishedAt), updatedAt: date(data.updatedAt), correction: string(data.correction),
     image: /^\/images\/[a-zA-Z0-9_./-]+$/.test(image) && !image.includes("..") ? image : safeUrl(image),

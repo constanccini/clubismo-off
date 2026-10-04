@@ -50,7 +50,7 @@ export function publishNews(payload, root = process.cwd(), now = new Date()) {
   const timestamp = new Date(Math.floor(now.getTime() / 60000) * 60000).toISOString().replace(/\.\d{3}Z$/, 'Z');
   const record = {
     ...draft, body: newsBody(draft), recordType: 'noticia', status: 'publicado', published: true,
-    category: 'noticias', excerpt: newsSummary(newsBody(draft)), priority: 0, demo: false,
+    category: draft.category || 'noticias', excerpt: newsSummary(newsBody(draft)), priority: 0, demo: false,
     date: new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now),
     author: typeof draft.author === 'string' && draft.author.trim() ? draft.author : 'Redação Clubismo Off',
     publishedAt: timestamp, reviewedAt: timestamp, reviewer: reviewer.trim(),

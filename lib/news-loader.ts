@@ -39,7 +39,7 @@ export function parsePublishedNews(raw: unknown, slug: string, sourcesDirectory 
   if (!!n.updatedAt !== !!n.correction) throw new Error("Preencha juntos a data de atualização e a nota de correção/atualização.");
   // Explicit allowlist: source excerpts, reviewer data, grades and drafts
   // never enter the public build payload (the GitHub repository is public).
-  return { slug, title: n.title, body: n.body, lead: newsSummary(n.body), type: n.type, transferStage: n.transferStage,
+  return { slug, title: n.title, body: n.body, lead: newsSummary(n.body), category: n.category, type: n.type, transferStage: n.transferStage,
     author: n.author, publishedAt: n.publishedAt, updatedAt: n.updatedAt, correction: n.correction,
     image: n.image, imageAlt: n.imageAlt, imageCaption: n.imageCaption, imageCredit: n.imageCredit,
     imageSource: n.imageSource, imageLicense: n.imageLicense, imageLicenseUrl: n.imageLicenseUrl,

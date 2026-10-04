@@ -37,7 +37,7 @@ content:
           button: Publicar
     view:
       primary: title
-      fields: [ticket, title, status]
+      fields: [ticket, title, category, status]
       search: [title, body]
       sort: [ticket, publishedAt, title, status]
       default:
@@ -61,6 +61,18 @@ content:
         type: string
         required: true
         description: Até 160 caracteres. Sem opinião, adjetivos promocionais ou clickbait.
+      - name: category
+        label: Editoria
+        type: select
+        required: true
+        default: noticias
+        description: Ao publicar, aparece nesta editoria, em Últimas e em Em campo. As notas da redação chegam como Notícias.
+        options:
+          values:
+            - {name: opiniao, label: Opinião}
+            - {name: analises, label: Análises}
+            - {name: resenha, label: Resenha}
+            - {name: noticias, label: Notícias}
       - name: body
         label: Texto da notícia
         type: rich-text
@@ -84,7 +96,7 @@ content:
         label: Etapa
         type: select
         default: rascunho
-        description: "Salvar mantém o texto na Fila. Depois da revisão, use Publicar no topo. Aguarde a conclusão da ação, que pode levar alguns minutos, e atualize o painel. A notícia aparecerá em Matérias e na seção Últimas do site."
+        description: "Salvar mantém o texto na Fila. Depois da revisão, use Publicar no topo. Aguarde a conclusão da ação, que pode levar alguns minutos, e atualize o painel. A notícia aparecerá em Matérias no painel, na editoria escolhida, em Últimas e em Em campo no site."
         options:
           values:
             - {name: rascunho, label: Rascunho}
@@ -308,10 +320,11 @@ content:
           media: fotos
           switcher: false
       - name: priority
-        label: Prioridade na capa
+        label: Prioridade antiga da capa
         type: number
         default: 0
-        description: Use 0 normalmente. Números maiores aparecem primeiro. Em caso de empate, vale a data mais recente.
+        hidden: true
+        description: Campo preservado para compatibilidade. Em campo usa leituras da semana e data de publicação.
         options:
           min: 0
           max: 100

@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { blobSha, publishNews } from '../scripts/publish-news.mjs';
 import { readNews } from '../lib/news-loader.ts';
 import { readArticles } from '../lib/content-loader.ts';
+import { buildStoryCatalog } from '../lib/story-catalog.ts';
 
 const now = new Date('2026-10-03T20:00:38Z');
 const draft = {
@@ -45,8 +46,11 @@ test('Publicar move a versão aprovada para Matérias e preserva o texto, foto e
   for (const key of ['body', 'title', 'image', 'imageCredit', 'imageLicenseUrl']) assert.equal(item[key], draft[key]);
   assert.equal(item.source.url, draft.sourceUrl);
   for (const key of ['evidence', 'reviewer', 'reviewNote', 'publication', 'sourceChecked']) assert.equal(key in item, false);
-  // News keeps the existing Últimas layout instead of replacing the authorial cover.
+  // Separate validated loaders now feed the same public cover/category catalog.
   assert.deepEqual(readArticles(join(f.root, 'content/articles')), []);
+  const catalog = buildStoryCatalog(readArticles(join(f.root, 'content/articles')), f.read());
+  assert.equal(catalog[0].category, 'noticias');
+  assert.equal(catalog[0].href, '/ultimas/nota/');
   assert.equal(publishNews(f.payload, f.root, now).changed, false);
 
   saved.body = 'Texto corrigido.\n\nNovo parágrafo.';
@@ -57,6 +61,21 @@ test('Publicar move a versão aprovada para Matérias e preserva o texto, foto e
   saved.published = true; writeFileSync(f.target, JSON.stringify(saved)); assert.equal(f.read().length, 1);
   rmSync(f.target); assert.deepEqual(f.read(), []);
   assert.throws(() => publishNews(f.payload, f.root, now), /não está mais/);
+});
+
+test('Publicar respeita a editoria salva e reclassificar preserva o endereço', t => {
+  const f=fixture(t);
+  writeFileSync(f.source, JSON.stringify({...draft, category:'resenha'}));
+  f.payload.context.data.sha=blobSha(readFileSync(f.source));
+  publishNews(f.payload,f.root,now);
+  assert.equal(JSON.parse(readFileSync(f.target,'utf8')).category,'resenha');
+  assert.equal(buildStoryCatalog([],f.read())[0].category,'resenha');
+  const saved=JSON.parse(readFileSync(f.target,'utf8'));
+  saved.category='analises'; writeFileSync(f.target,JSON.stringify(saved));
+  assert.equal(buildStoryCatalog([],f.read())[0].category,'analises');
+  assert.equal(buildStoryCatalog([],f.read())[0].href,'/ultimas/nota/');
+  saved.published=false; writeFileSync(f.target,JSON.stringify(saved));
+  assert.deepEqual(buildStoryCatalog([],f.read()),[]);
 });
 
 test('Publicar recusa versão antiga, fonte inválida e contexto indevido sem tirar o rascunho da Fila', t => {

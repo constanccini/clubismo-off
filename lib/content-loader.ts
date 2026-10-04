@@ -19,6 +19,7 @@ const articleSchema = z.object({
   topic: optionalText,
   author: optionalText,
   date: optionalText.refine(value => !value || (/^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value), "Escolha uma data válida."),
+  publishedAt: optionalText.refine(value => !value || (/^\d{4}-\d{2}-\d{2}T/.test(value) && Number.isFinite(Date.parse(value))), "Informe uma data de publicação válida."),
   published: z.literal(true),
   demo: z.boolean().default(false),
   priority: z.preprocess(value => value ?? 0, z.number().int().min(0).max(100).default(0)),

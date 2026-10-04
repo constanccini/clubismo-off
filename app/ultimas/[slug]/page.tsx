@@ -6,6 +6,7 @@ import { Masthead, Footer } from "@/components/editorial";
 import { news, findNews } from "@/lib/news";
 import { settings } from "@/lib/settings";
 import { NewsArticle } from "@/components/news-article";
+import { ReadingTracker } from "@/components/reading-tracker";
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 export function generateStaticParams() { return news.length ? news.map(item => ({ slug: item.slug })) : [{ slug: "__empty__" }]; }
@@ -16,8 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NewsPage({ params }: Props) {
   const item = findNews((await params).slug);
   if (!item) notFound();
-  return <><Masthead active="ultimas" /><main id="conteudo" className="page-shell article-page">
+  return <><Masthead active={item.category} /><main id="conteudo" className="page-shell article-page">
     <Link href="/ultimas" className="back-link"><ArrowLeft size={15} /> Todas as notícias</Link>
-    <NewsArticle item={item} /><div className="article-return"><Link href="/ultimas" className="text-link"><ArrowLeft size={16} /> Mais notícias</Link></div>
+    <NewsArticle item={item} /><ReadingTracker id={`ultimas/${item.slug}`} /><div className="article-return"><Link href="/ultimas" className="text-link"><ArrowLeft size={16} /> Mais publicações</Link></div>
   </main><Footer /></>;
 }

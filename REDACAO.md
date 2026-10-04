@@ -32,7 +32,7 @@ O repositório é público. Rascunhos não entram nas páginas do blog, mas seus
 - Não opinar, especular, usar adjetivos promocionais ou sensacionalismo, transformar rumores em fatos, nem inventar dados ausentes.
 - Não concluir que algo nunca foi divulgado apenas porque não aparece no documento. Quando relevante, usar “O comunicado não informa os valores”. Não completar prazos, datas, estatísticas, causas ou diagnósticos.
 - Fonte A: oficial. B: jornalista ou agência confiável. C: imprensa geral, exige confirmação oficial adicional. D: agregador ou torcida, não aceita para publicação.
-- A classe da fonte não é a permissão de automação. Temas sensíveis nunca são elegíveis, inclusive quando estão em comunicado oficial. Rumor, interesse, análise e opinião não entram em Últimas.
+- A classe da fonte não é a permissão de automação. Temas sensíveis nunca são elegíveis, inclusive quando estão em comunicado oficial. Rumor e interesse não são publicados como fatos. A automação não escreve análise ou opinião. Últimas é a lista cronológica de todas as publicações aprovadas, incluindo textos autorais.
 - Interesse não publica; negociação e acerto exigem revisão e atribuição; Oficial exige fonte oficial ou confirmação oficial adicional.
 - Todas as publicações exigem decisão humana nesta versão. A elegibilidade futura é apenas um resultado de classificação; não liga robô, agenda ou publicador.
 - Ao corrigir nota publicada, refaça a revisão, mantenha a data original, informe a data de atualização e explique a correção para o leitor.
@@ -44,7 +44,7 @@ A validação técnica confere formato, datas, links, fontes cadastradas, revis�
 - `content/news/` é a Fila de rascunhos. O botão nativo do Pages CMS dispara `pages.yml` com o contexto da notícia, incluindo o SHA do arquivo salvo.
 - `scripts/publish-news.mjs` valida o rascunho e prepara a mudança para `content/articles/`, marcada com `recordType: noticia`. O mesmo commit adiciona a matéria e remove o rascunho; só é enviado após testes e geração das páginas passarem. Uma gravação concorrente recusa o envio, sem sobrescrever a revisão.
 - **Matérias** reúne conteúdo autoral e notícias aprovadas. `settings.content.merge` do Pages CMS preserva os dados de revisão fora dos campos visíveis ao editar.
-- As notícias mantêm seus endereços em `/ultimas/` e a lista abaixo dos destaques na capa. Os textos autorais preservam suas categorias, endereços em `/materia/` e prioridade.
+- As notícias mantêm seus endereços em `/ultimas/`; os textos autorais mantêm `/materia/`. O catálogo público unifica os dois formatos em Em campo, Últimas e na editoria escolhida. A editora define `category` antes de publicar e o botão a preserva. Rascunhos nunca entram no catálogo.
 - O mesmo workflow envia o site após a mudança de conteúdo; não depende de um segundo workflow provocado pelo commit do robô. Repetir uma execução já aprovada apenas refaz a publicação, sem duplicar a notícia ou recolocar no ar uma matéria retirada.
 - Fontes ficam em `content/sources/`. O vínculo verifica domínio e caminho, inclusive para perfis sociais. O editor deve conferir a identidade do perfil; um selo sozinho não basta.
 - `scripts/prepare-content.mjs` exporta somente notícias publicadas e validadas. Os arquivos gerados não incluem rascunhos, evidências internas ou dados de revisão.
@@ -66,3 +66,14 @@ O contrato de dados está em `lib/news-schema.ts`; as regras em `lib/news-policy
 `node --test tests/*.test.mjs` verifica preservação das matérias, estados da fila, regras de fonte e assunto, datas, duplicidade, gravação com versão, exclusão restrita e erros de acesso. `pnpm run build` exporta as páginas para GitHub Pages. Os testes de publicação usam arquivos temporários e verificam movimento, preservação, recusa de revisão antiga, edição, retirada e exclusão. Não publicam notícias reais nem comprovam a permissão da sessão do Pages CMS.
 
 Referências de implementação: [Pages CMS](https://pagescms.org/docs/configuration/content/fields/), [permissões do GitHub](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens), [tarefas agendadas](https://learn.chatgpt.com/docs/automations).
+
+## Em campo e leituras da semana
+
+- O carrossel mostra até seis destaques; os demais seguem em cartões. Capas são opcionais e mantêm os créditos.
+- Sem medição, toda a capa segue a hora de publicação, da mais recente à mais antiga. A antiga prioridade manual não altera essa ordem.
+- Com o contador compartilhado ativo, Em campo prioriza as leituras dos últimos sete dias; empates e itens sem leituras usam a hora de publicação. Últimas e editorias continuam cronológicas.
+- O serviço dedicado `Leituras do Clubismo Off` foi preparado com D1. Ele começa privado e só pode ser ativado para os visitantes após a autorização do dono para acesso público.
+- Origem prevista do serviço: `https://clubismo-off-leituras.chummy-map-9946.chatgpt.site`. Projeto Sites: `appgprj_6ac1c4bb16e081918c1cc94e056767bf`.
+- `lib/readership-config.ts` permanece vazio até confirmar acesso público e persistência. Nenhum token entra no código do navegador.
+- O catálogo `public/catalog.json` é gerado no build apenas com identificadores e endereços publicados.
+- A leitura é contada após dois segundos de página visível e deduplicada por sessão/aba a cada 30 minutos. Essa contagem não é de pessoas únicas. Relatório inválido, antigo ou indisponível mantém a ordem cronológica.

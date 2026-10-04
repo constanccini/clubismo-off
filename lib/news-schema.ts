@@ -2,6 +2,8 @@ import { z } from "zod";
 import { newsTypes, transferStages } from "./news-policy.ts";
 import type { NewsType } from "./news-policy.ts";
 import { newsBody } from "./news-copy.ts";
+import { categoryKeys } from "./categories.ts";
+import type { Category } from "./categories.ts";
 
 const optionalText = z.preprocess(value => value ?? "", z.string().trim());
 const text = z.string().trim().min(1, "Preencha este campo.");
@@ -32,6 +34,7 @@ export const newsSchema = z.preprocess(value => {
   return { ...value, body: newsBody(value as Record<string, unknown>) };
 }, z.object({
   title: text.max(160), body: text.max(6000, "Limite a notícia a 6.000 caracteres."),
+  category: z.enum(categoryKeys).default("noticias"),
   type: z.enum(Object.keys(newsTypes) as [NewsType, ...NewsType[]]),
   transferStage: z.enum(Object.keys(transferStages) as [keyof typeof transferStages, ...(keyof typeof transferStages)[]]).default("nao_se_aplica"),
   sensitive: z.boolean().default(false),
@@ -51,7 +54,7 @@ export const newsSchema = z.preprocess(value => {
 }).refine(item => !item.image || !!item.imageAlt, { path: ["imageAlt"], message: "Descreva a imagem de capa." }));
 
 export type PublicNews = NewsImageData & {
-  slug: string; title: string; body: string; lead: string; type: NewsType;
+  slug: string; title: string; body: string; lead: string; type: NewsType; category: Category;
   transferStage: keyof typeof transferStages; author: string; publishedAt: string; updatedAt: string; correction: string;
   source: { name: string; url: string; publishedAt: string };
   confirmations: { name: string; url: string }[];
