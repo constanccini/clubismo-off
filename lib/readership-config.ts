@@ -1,3 +1,2 @@
-// Set only after the shared counter has been deployed and verified for public access.
-// No private key or per-visitor data belongs in this browser-visible configuration.
-export const readershipApiUrl = "";
+// Shared seven-day readership service; no credentials belong in this browser-visible file.
+export const readershipApiUrl = "https://clubismo-off-leituras.constanccini.chatgpt.site";
