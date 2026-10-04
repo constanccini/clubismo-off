@@ -16,16 +16,16 @@
     }
   ],
   "origin": "redacao",
-  "status": "revisao",
+  "status": "publicado",
   "author": "Redação Clubismo Off",
-  "publishedAt": "",
+  "publishedAt": "2026-10-04T21:55:00Z",
   "updatedAt": "",
   "correction": "",
-  "reviewer": "",
-  "reviewedAt": "",
-  "sourceChecked": false,
-  "factsChecked": false,
-  "styleChecked": false,
+  "reviewer": "constanccini",
+  "reviewedAt": "2026-10-04T21:55:00Z",
+  "sourceChecked": true,
+  "factsChecked": true,
+  "styleChecked": true,
   "reviewNote": "",
   "image": "",
   "imageAlt": "",
@@ -35,5 +35,15 @@
   "imageLicense": "",
   "imageLicenseUrl": "",
   "body": "A Holanda venceu a Sérvia por 2 a 1 neste domingo (4), no Philips Stadium, em Eindhoven, pela quarta rodada do Grupo A2 da Liga das Nações. Virgil van Dijk abriu o placar aos 30 minutos, em sua 100ª partida pela seleção holandesa. Cvetkovic empatou cinco minutos depois, e Joshua Zirkzee fez o gol da vitória aos 26 minutos do segundo tempo.\n\nO resultado levou a Holanda a oito pontos e à liderança do grupo pelos critérios de desempate. A Grécia também tem oito pontos após empatar com a Alemanha. As duas primeiras colocadas avançam às quartas de final.",
-  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261004-18-02-holanda-vence-servia)"
+  "recordType": "noticia",
+  "published": true,
+  "category": "noticias",
+  "excerpt": "A Holanda venceu a Sérvia por 2 a 1 neste domingo (4), no Philips Stadium, em Eindhoven, pela quarta rodada do Grupo A2 da Liga das Nações. Virgil van Dijk abriu o placar aos 30 minutos, em sua 100ª partida pela seleção holandesa. Cvetkovic empatou cinco minutos depois, e Joshua Zirkzee fez o gol da vitória aos 26 minutos do segundo tempo.",
+  "priority": 0,
+  "demo": false,
+  "date": "2026-10-04",
+  "publication": {
+    "draftPath": "content/news/20261004-18-02-holanda-vence-servia.json",
+    "draftSha": "5ecb3a7c9f6ae6e369583d195689bb82c0b09459"
+  }
 }
