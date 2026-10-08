@@ -1,0 +1,39 @@
+{
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/uol-esporte.json",
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false,
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "ticket": "20261008-00-04",
+  "title": "Fortaleza vence o América-MG, que é rebaixado à Série C",
+  "sourceUrl": "https://www.uol.com.br/esporte/ultimas-noticias/agencia/2026/10/07/america-mg-e-rebaixado-a-serie-c-apos-derrota-em-casa-para-o-fortaleza.htm",
+  "sourcePublishedAt": "2026-10-07T22:54-03:00",
+  "evidence": "Reportagem publicada pelo UOL em 07/10/2026 às 22h54 confirma a vitória do Fortaleza por 1 a 0, o gol de Lucas Sasha, a 32ª rodada da Série B e o rebaixamento matemático do América-MG à Série C de 2027.",
+  "confirmations": [
+    {
+      "source": "content/sources/ge.json",
+      "url": "https://ge.globo.com/mg/zona-da-mata-centro-oeste/futebol/brasileirao-serie-b/jogo/07-10-2026/america-mg-fortaleza.ghtml",
+      "evidence": "Página de melhores momentos do ge confirma o resultado América-MG 0 x 1 Fortaleza pela Série B."
+    }
+  ],
+  "reviewNote": "Fonte principal B, com o placar corroborado pelo ge. A impossibilidade matemática de permanência foi conferida pelos pontos e rodadas restantes informados na reportagem.",
+  "body": "O Fortaleza venceu o América-MG por 1 a 0 nesta quarta-feira (7), no Independência, em Belo Horizonte, pela 32ª rodada da Série B. O resultado confirmou o rebaixamento do clube mineiro à Série C de 2027, segundo o UOL, e o placar foi corroborado pelo ge.\n\nLucas Sasha marcou o gol aos três minutos do primeiro tempo, após aproveitar o rebote de uma finalização de Luiz Fernando.\n\nO América-MG permaneceu com 17 pontos, na 19ª colocação. A equipe ficou 21 pontos atrás do Botafogo-SP, primeiro time fora da zona de rebaixamento, quando restavam 18 pontos em disputa. O Fortaleza chegou a 56 pontos e terminou a noite em terceiro lugar.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261008-00-04-fortaleza-vence-america-mg)"
+}
