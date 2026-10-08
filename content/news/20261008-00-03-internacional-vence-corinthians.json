@@ -1,0 +1,39 @@
+{
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/uol-esporte.json",
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false,
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "ticket": "20261008-00-03",
+  "title": "Internacional vence o Corinthians por 2 a 1 pelo Brasileirão",
+  "sourceUrl": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/07/inter-corinthians-brasileirao.ghtm",
+  "sourcePublishedAt": "2026-10-07T21:29-03:00",
+  "evidence": "Reportagem do UOL publicada em 07/10/2026 às 21h29 confirma o placar de 2 a 1, a 29ª rodada, o Beira-Rio, os gols de Vitinho, Alan Patrick e André e a pontuação das equipes.",
+  "confirmations": [
+    {
+      "source": "content/sources/ge.json",
+      "url": "https://ge.globo.com/rs/futebol/brasileirao-serie-a/jogo/07-10-2026/internacional-corinthians.ghtml",
+      "evidence": "Página de melhores momentos do ge confirma o resultado Internacional 2 x 1 Corinthians no Campeonato Brasileiro."
+    }
+  ],
+  "reviewNote": "Fonte principal B, com resultado corroborado pela página de melhores momentos do ge.",
+  "body": "O Internacional venceu o Corinthians por 2 a 1 nesta quarta-feira (7), no Beira-Rio, em Porto Alegre, pela 29ª rodada do Campeonato Brasileiro. O resultado foi registrado nas coberturas de UOL e ge.\n\nVitinho abriu o placar aos 40 segundos, após passe de Alan Patrick. O meia marcou o segundo gol colorado aos 31 minutos da etapa final. André descontou para o Corinthians três minutos depois.\n\nCom o resultado, o Internacional chegou a 31 pontos e terminou a noite na 17ª colocação. O Corinthians permaneceu com 32 pontos, em 16º lugar.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261008-00-03-internacional-vence-corinthians)"
+}
