@@ -1,0 +1,40 @@
+{
+  "ticket": "20261009-18-02",
+  "title": "Al-Nassr vence o Al-Diriyah por 3 a 0 pelo Campeonato Saudita",
+  "body": "O Al-Nassr venceu o Al-Diriyah por 3 a 0 nesta sexta-feira (9), no Al-Awwal Park, em Riad, pela oitava rodada do Campeonato Saudita.\n\nSegundo o UOL, Cristiano Ronaldo abriu o placar no primeiro tempo, após aproveitar o rebote de uma finalização de Kingsley Coman. Samú Costa ampliou antes do intervalo, e Coman marcou o terceiro gol na etapa final.\n\nCom o resultado, a tabela oficial da Federação Saudita registra o Al-Nassr na segunda colocação, com 19 pontos, empatado com o líder Al-Qadisiyah e atrás no saldo de gols.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261009-18-02-al-nassr-vence-al-diriyah)",
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/saff.json",
+  "sourceUrl": "https://www.saff.com.sa/en/championship.php?id=415",
+  "sourcePublishedAt": "",
+  "evidence": "A página oficial da Federação Saudita registra Al-Nassr 3 x 0 Al-Diriyah em 09/10/2026, pela oitava rodada, e mostra o Al-Nassr com 19 pontos na segunda posição.",
+  "confirmations": [
+    {
+      "source": "content/sources/uol-esporte.json",
+      "url": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/09/al-nassr-x-diriyah---campeonato-saudita.ghtm",
+      "evidence": "O UOL publicou o placar às 17h00 de 09/10/2026, sem informar o fuso, e identificou Cristiano Ronaldo, Samú Costa e Kingsley Coman como autores dos gols."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "A fonte oficial confirma placar e tabela, mas não informa horário de publicação. Os autores dos gols são atribuídos ao UOL, fonte B já cadastrada e corroborada pelo resultado oficial.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
