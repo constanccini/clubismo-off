@@ -1,0 +1,40 @@
+{
+  "ticket": "20261009-00-01",
+  "title": "Santos e Flamengo empatam por 2 a 2 na Vila Belmiro",
+  "body": "Santos e Flamengo empataram por 2 a 2 nesta quinta-feira (8), na Vila Belmiro, em Santos, pela 29ª rodada do Campeonato Brasileiro.\n\nDanilo abriu o placar para o Flamengo após tabela com Pedro, e Lucas Paquetá ampliou de cabeça depois de cruzamento de Carrascal, ainda no primeiro tempo. Neymar entrou após o intervalo e marcou os dois gols do Santos em cobranças de pênalti.\n\nCom o resultado, o Flamengo somou um ponto e permaneceu na liderança do campeonato.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261009-00-01-santos-flamengo-empate)",
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/flamengo.json",
+  "sourceUrl": "https://www.flamengo.com.br/noticias/futebol/flamengo-retorna-da-data-fifa-com-empate-fora-de-casa-pelo-brasileirao",
+  "sourcePublishedAt": "",
+  "evidence": "O site oficial do Flamengo registra o empate por 2 a 2 com o Santos em 08/10/2026, na Vila Belmiro, pela 29ª rodada. A página informa Danilo e Lucas Paquetá como autores dos gols do Flamengo e Neymar como autor dos dois gols do Santos, ambos de pênalti.",
+  "confirmations": [
+    {
+      "source": "content/sources/ge.json",
+      "url": "https://ge.globo.com/sp/santos-e-regiao/futebol/brasileirao-serie-a/jogo/08-10-2026/santos-flamengo.ghtml",
+      "evidence": "A página de jogo do ge registra Santos 2 x 2 Flamengo em 08/10/2026 pelo Campeonato Brasileiro."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "Fonte oficial corroborada pelo ge. O campo sourcePublishedAt foi deixado vazio porque o cabeçalho do Flamengo exibe datas contraditórias — publicação em 09/10/26 às 22:00 e atualização em 08/10/2026 às 22:00 — sem informar o fuso.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
