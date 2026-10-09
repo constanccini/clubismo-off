@@ -1,0 +1,50 @@
+{
+  "ticket": "20261009-18-01",
+  "title": "30ª rodada do Brasileirão terá três clássicos no domingo às 17h30",
+  "body": "A CBF informou nesta sexta-feira (9) que Flamengo x Fluminense, Palmeiras x Corinthians e Grêmio x Internacional serão disputados no domingo (11), às 17h30, pela 30ª rodada do Campeonato Brasileiro. O Fla-Flu será no Maracanã, o Dérbi no Nubank Parque e o Gre-Nal na Arena do Grêmio.\n\nA rodada começa no sábado (10), com Vasco x Remo às 18h em São Januário e São Paulo x Vitória às 21h no MorumBis. No domingo, Bahia x Mirassol jogam às 19h30 na Arena Fonte Nova.\n\nNa segunda-feira (12), Coritiba x Botafogo às 16h, Chapecoense x Athletico-PR às 19h30 e Red Bull Bragantino x Cruzeiro às 21h encerram a programação destacada na nota.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261009-18-01-brasileirao-tres-classicos-domingo)",
+  "category": "noticias",
+  "type": "tabela",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/cbf.json",
+  "sourceUrl": "https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro/campeonato-brasileiro-serie-a/brasileirao-rodada-de-classicos-movimenta-fim-de-semana",
+  "sourcePublishedAt": "",
+  "evidence": "A nota oficial da CBF exibe 09/10/2026 às 17h15, sem informar o fuso, e relaciona datas, horários e locais da 30ª rodada. As páginas oficiais dos três clássicos confirmam domingo, 11/10/2026, às 17h30, nos estádios indicados.",
+  "confirmations": [
+    {
+      "source": "content/sources/cbf.json",
+      "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/flamengo-x-fluminense/832181",
+      "evidence": "Página oficial confirma Flamengo x Fluminense em 11/10/2026, às 17h30, no Maracanã."
+    },
+    {
+      "source": "content/sources/cbf.json",
+      "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/palmeiras-x-corinthians/832184",
+      "evidence": "Página oficial confirma Palmeiras x Corinthians em 11/10/2026, às 17h30, no Nubank Parque."
+    },
+    {
+      "source": "content/sources/cbf.json",
+      "url": "https://www.cbf.com.br/futebol-brasileiro/jogos/campeonato-brasileiro/serie-a/2026/gremio-x-internacional/832187",
+      "evidence": "Página oficial confirma Grêmio x Internacional em 11/10/2026, às 17h30, na Arena do Grêmio."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "A nota usa “Nubank Arena” no texto, enquanto a página oficial da partida usa “Nubank Parque”; o rascunho segue a página da partida. A nota também resume apenas parte da rodada, por isso o texto não se apresenta como lista completa.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
