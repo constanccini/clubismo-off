@@ -14,6 +14,8 @@
   "author": "Redação Clubismo Off",
   "reviewNote": "O horário da publicação não traz fuso, por isso sourcePublishedAt permanece vazio. O texto resume as principais datas da nota e não se apresenta como reprodução integral do calendário.",
   "image": "/images/imagem-do-chatgpt-10-de-out-de-2026-140205-1.png",
+  "imageAlt": "Ilustração de um calendário de 2027 em um estádio, cercado por uma bola, um apito e símbolos das competições brasileiras de futebol.",
+  "publishedAt": "2026-10-10T17:04:00Z",
   "reviewer": "constanccini",
   "reviewedAt": "2026-10-10T17:04:00Z",
   "sourceChecked": true,

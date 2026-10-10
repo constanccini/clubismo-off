@@ -154,7 +154,7 @@ content:
       - name: imageAlt
         label: Descrição da foto
         type: string
-        description: Descreva o que aparece na foto. Preencha quando usar uma capa.
+        description: Obrigatória quando houver capa. Descreva a imagem para quem usa leitor de tela; sem essa descrição, a atualização do site não é concluída.
       - name: imageCaption
         label: Legenda
         type: text
@@ -288,7 +288,7 @@ content:
       - name: imageAlt
         label: Descrição da foto
         type: string
-        description: Descreva o que aparece na foto. Preencha quando usar uma capa.
+        description: Obrigatória quando houver capa. Descreva a imagem para quem usa leitor de tela; sem essa descrição, a atualização do site não é concluída.
       - name: imageCaption
         label: Legenda
         type: text
@@ -385,11 +385,12 @@ content:
       - name: publishedAt
         label: Data e hora da publicação
         type: date
+        readonly: true
         default: ""
-        description: Preenchida ao publicar. O blog exibe horário de Brasília. Preserve a data original ao corrigir uma notícia.
+        description: Registrada automaticamente ao publicar e preservada nas edições. O blog exibe horário de Brasília.
         options:
           time: true
-          format: "yyyy-MM-dd'T'HH:mmXXX"
+          format: "yyyy-MM-dd'T'HH:mm:ssXXX"
       - name: updatedAt
         label: Data e hora da atualização — opcional
         type: date
