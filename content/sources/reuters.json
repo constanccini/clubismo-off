@@ -1,0 +1,6 @@
+{
+  "name": "Reuters",
+  "grade": "B",
+  "baseUrl": "https://www.reuters.com",
+  "active": true
+}
