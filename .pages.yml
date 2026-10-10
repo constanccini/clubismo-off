@@ -404,6 +404,33 @@ content:
         type: text
         description: Aparece para o leitor. Explique objetivamente o que mudou.
 
+  - name: acessos
+    label: Acessos
+    type: file
+    path: content/analytics.json
+    format: json
+    operations:
+      create: false
+      delete: false
+      rename: false
+    fields:
+      - name: reports
+        label: Relatórios de visitas
+        type: rich-text
+        readonly: true
+        options:
+          format: markdown
+          media: false
+          switcher: false
+      - name: measurementId
+        label: ID de medição do Google Analytics
+        type: string
+        default: ""
+        description: "Cole o código G- da propriedade do Clubismo Off e salve. No Google Analytics, ele fica em Administrador → Fluxos de dados → fluxo da Web. Mantenha ativada a medição otimizada de visualizações de página, incluindo mudanças no histórico. Deixe vazio para desligar a coleta após a atualização do blog."
+        pattern:
+          regex: '^$|^G-[A-Z0-9]+$'
+          message: Cole somente o ID de medição, começando com G- e seguido de letras maiúsculas e números.
+
   - name: fontes
     label: Fontes
     type: collection

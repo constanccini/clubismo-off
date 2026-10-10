@@ -45,6 +45,20 @@ Na primeira execução, o workflow extrai o código e grava os arquivos no GitHu
 
 O pacote não instala nem autoriza o aplicativo Pages CMS em sua conta. Essa conexão precisa ser feita pelo proprietário no primeiro acesso. [Guia oficial do Pages CMS](https://pagescms.org/docs/quick-start/).
 
+## Visitas no Google Analytics
+
+No Pages CMS, **Acessos** fica logo abaixo de **Fila** e **Matérias**. Essa seção contém o link para os relatórios privados do Google Analytics e o campo **ID de medição do Google Analytics**. Os gráficos são consultados na conta Google; o Pages CMS não replica nem publica esses dados.
+
+Em uma propriedade GA4 do Clubismo Off, use o fluxo Web do endereço `https://constanccini.github.io/clubismo-off/`. Copie o ID que começa com `G-`, cole em **Acessos** e salve. A coleta começa depois que a atualização do blog termina. O campo vem vazio: sem um ID válido, o blog não carrega a tag. Limpar o campo e salvar desativa a tag na próxima atualização.
+
+Mantenha a medição otimizada de visualizações de página ativada, incluindo mudanças baseadas no histórico do navegador, para registrar também a navegação entre matérias. O código usa a coleta automática do GA4, sem enviar eventos `page_view` manuais adicionais. A tag carrega após a página ficar interativa. Google Signals e personalização de anúncios não são habilitados pela integração.
+
+Confira a ativação em **Tempo real** ao abrir o blog. Em **Páginas e telas**, acompanhe as matérias lidas; em **Aquisição de tráfego**, veja a origem das visitas. O Analytics não recupera visitas anteriores à ativação. Bloqueadores podem impedir a coleta.
+
+A configuração fica em `content/analytics.json`. O ID de medição é público; não insira senha, token, credencial Google ou segredo de API nesse arquivo.
+
+Referências: [encontrar o ID de medição](https://support.google.com/analytics/answer/9539598?hl=pt-BR), [visualizações no GA4](https://developers.google.com/analytics/devguides/collection/ga4/views) e [integração com Next.js](https://nextjs.org/docs/messages/next-script-for-ga).
+
 ## Domínio próprio
 
 Depois de registrar um domínio, configure-o em **Settings → Pages → Custom domain** e crie os registros DNS indicados na documentação do GitHub. Ative **Enforce HTTPS** quando o certificado estiver disponível e execute novamente a publicação para recalcular os caminhos das páginas.

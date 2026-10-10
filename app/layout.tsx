@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { assetPath, brand } from "@/lib/site";
 import { settings } from "@/lib/settings";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 export const metadata: Metadata = {
   title: { default: "Clubismo Off — Futebol além do placar", template: "%s | Clubismo Off" },
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">{children}<GoogleAnalytics /></body>
     </html>
   );
 }
