@@ -1,0 +1,40 @@
+{
+  "ticket": "20261011-00-03",
+  "title": "São Paulo vence o Vitória por 2 a 1 pelo Brasileirão",
+  "body": "O São Paulo venceu o Vitória por 2 a 1 neste sábado (10), no MorumBIS, pela 30ª rodada do Campeonato Brasileiro, segundo as coberturas de UOL e ge.\n\nCalleri marcou os dois gols do São Paulo. Emmanuel Martínez fez o gol do Vitória.\n\nCom o resultado, o São Paulo chegou a 39 pontos e ocupava a nona colocação após a partida. O Vitória permaneceu com 36 pontos, em 12º lugar.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261011-00-03-sao-paulo-vence-vitoria)",
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/uol-esporte.json",
+  "sourceUrl": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/10/sao-paulo-x-vitoria---30-rodada-do-brasileirao.ghtm",
+  "sourcePublishedAt": "",
+  "evidence": "O UOL informa que o São Paulo venceu o Vitória por 2 a 1 em 10/10/2026, no MorumBIS, pela 30ª rodada, com dois gols de Calleri e um de Emmanuel Martínez. A reportagem também registra 39 pontos e a nona posição do São Paulo e 36 pontos e a 12ª posição do Vitória.",
+  "confirmations": [
+    {
+      "source": "content/sources/ge.json",
+      "url": "https://ge.globo.com/ba/futebol/times/vitoria/noticia/2026/10/10/sao-paulo-2-x-1-vitoria-assista-aos-gols-e-aos-melhores-momentos.ghtml",
+      "evidence": "O ge confirma o placar de 2 a 1, a 30ª rodada, o MorumBIS, os dois gols de Calleri e o gol de Emmanuel Martínez."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "Fonte principal B, com placar, competição e autores dos gols corroborados pelo ge. UOL e ge exibem horários sem indicação de fuso, por isso sourcePublishedAt permanece vazio.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
