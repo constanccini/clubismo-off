@@ -1,0 +1,6 @@
+{
+  "name": "Lega Serie A",
+  "grade": "A",
+  "baseUrl": "https://www.legaseriea.it",
+  "active": true
+}
