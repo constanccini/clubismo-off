@@ -1,0 +1,40 @@
+{
+  "ticket": "20261013-18-03",
+  "title": "Sabah vence o Slavia Praga por 2 a 0 na Champions League",
+  "body": "O Sabah venceu o Slavia Praga por 2 a 0 nesta terça-feira (13), no Estádio Olímpico de Baku, pela segunda rodada da fase de liga da Champions League.\n\nKaheem Parris abriu o placar aos 49 minutos, e Joy-Lance Mickels marcou o segundo aos 88. Du Queiroz foi titular pelo Sabah e deixou o campo aos 73.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261013-18-03-sabah-vence-slavia-champions)",
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/slavia-praga.json",
+  "sourceUrl": "https://www.slavia.cz/cze/match/7147",
+  "sourcePublishedAt": "",
+  "evidence": "O relato oficial do Slavia Praga, datado de 13/10/2026, confirma a derrota por 2 a 0 no Estádio Olímpico de Baku, os gols de Kaheem Parris aos 49 minutos e Joy-Lance Mickels aos 88, além da presença de Du Queiroz entre os titulares do Sabah e sua substituição aos 73. A página não informa horário de publicação.",
+  "confirmations": [
+    {
+      "source": "content/sources/uefa.json",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a9-218b8766a6ce-03f12a507d5c-1000--every-2026-27-uefa-champions-league-player-of-the-match/",
+      "evidence": "A UEFA registra Sabah 2 a 0 Slavia Praha em 13/10/2026 e aponta Joy-Lance Mickels como o melhor jogador da partida."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "A fonte oficial informa apenas a data de publicação; por isso, sourcePublishedAt foi mantido vazio.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
