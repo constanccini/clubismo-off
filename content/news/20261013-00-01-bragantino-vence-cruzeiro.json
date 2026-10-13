@@ -1,0 +1,40 @@
+{
+  "ticket": "20261013-00-01",
+  "title": "Red Bull Bragantino vence o Cruzeiro por 4 a 2 pelo Brasileirão",
+  "body": "O Red Bull Bragantino venceu o Cruzeiro por 4 a 2 nesta segunda-feira (12), no Estádio Municipal Cícero de Souza Marques, em Bragança Paulista, pela 30ª rodada do Campeonato Brasileiro, segundo o UOL. O resultado também foi registrado pelo GZH.\n\nLucas Barbosa abriu o placar, Kaio Jorge marcou contra e Eric Ramires fez o terceiro gol do time paulista. Zé Lucas descontou para o Cruzeiro antes do intervalo. Matheus Henrique marcou o segundo da equipe mineira aos 44 minutos da etapa final, e Herrera completou o placar na sequência.\n\nCom a vitória, o Bragantino chegou a 40 pontos e terminou a rodada na nona colocação. O Cruzeiro permaneceu com 48 pontos, em sexto lugar.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261013-00-01-bragantino-vence-cruzeiro)",
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/uol-esporte.json",
+  "sourceUrl": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/12/saiba-como-foi-rb-bragantino-x-cruzeiro-pela-30-rodada-do-brasileirao.ghtm",
+  "sourcePublishedAt": "2026-10-12T23:01-03:00",
+  "evidence": "O UOL publicou em 12/10/2026 às 23h01 de Brasília o placar de 4 a 2, o local, a rodada, os seis gols e as posições das equipes ao fim da partida.",
+  "confirmations": [
+    {
+      "source": "content/sources/gzh.json",
+      "url": "https://gauchazh.clicrbs.com.br/esportes/noticia/2026/10/red-bull-bragantino-faz-3-gols-em-30-minutos-segura-reacao-do-cruzeiro-e-encerra-jejum-cmv625pmp00c6013qpnbvowaw.html",
+      "evidence": "O GZH registra o 4 a 2, o estádio e a sequência dos gols de Lucas Barbosa, Kaio Jorge contra, Eric Ramires, Zé Lucas, Matheus Henrique e Herrera."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "Fonte B atribuída no texto e corroborada por outra fonte B ativa.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
