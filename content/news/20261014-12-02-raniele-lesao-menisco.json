@@ -1,0 +1,45 @@
+{
+  "ticket": "20261014-12-02",
+  "title": "Corinthians confirma lesão no menisco lateral do joelho direito de Raniele",
+  "body": "O Corinthians informou nesta quarta-feira (14) que Raniele teve uma lesão no menisco lateral do joelho direito diagnosticada após exames. Segundo o clube, o volante sofreu uma entorse na partida contra o Palmeiras, no domingo (11), e passou pelos exames na terça-feira (13).\n\nO clube informou que Raniele passaria por consulta com o médico Moisés Cohen para avaliação e indicação do tratamento. O comunicado não informa a gravidade nem o prazo de retorno.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261014-12-02-raniele-lesao-menisco)",
+  "type": "lesao",
+  "transferStage": "nao_se_aplica",
+  "source": "content/sources/ge.json",
+  "sourceUrl": "https://ge.globo.com/futebol/times/corinthians/noticia/2026/10/14/raniele-sofre-lesao-no-joelho-e-vira-desfalque-no-corinthians.ghtml",
+  "sourcePublishedAt": "2026-10-14T10:55-03:00",
+  "evidence": "O ge, em 14/10/2026 às 10h55, reproduz o comunicado do Corinthians sobre a entorse, os exames de 13/10, a lesão no menisco lateral do joelho direito e a consulta prevista com o especialista Moisés Cohen.",
+  "confirmations": [
+    {
+      "source": "content/sources/uol-esporte.json",
+      "url": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/14/raniele-sofre-lesao-no-joelho-em-derbi-e-vira-preocupacao-no-corinthians.ghtm",
+      "evidence": "O UOL publicou em 14/10/2026 às 10h58 a íntegra da mesma nota do Corinthians e informou que a gravidade não havia sido divulgada."
+    },
+    {
+      "source": "content/sources/gazeta-esportiva.json",
+      "url": "https://www.gazetaesportiva.com/times/corinthians/raniele-lesao-menisco-joelho-corinthians/",
+      "evidence": "A Gazeta Esportiva publicou em 14/10/2026 às 10h58 a nota do clube com diagnóstico, datas dos exames e avaliação médica prevista."
+    }
+  ],
+  "reviewNote": "Limitar o texto ao diagnóstico e à avaliação médica informados pelo clube. O Corinthians não comunicou gravidade, tratamento nem prazo de retorno; não acrescentar projeções.",
+  "category": "noticias",
+  "sensitive": false,
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
