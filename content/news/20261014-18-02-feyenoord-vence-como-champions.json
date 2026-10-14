@@ -1,0 +1,40 @@
+{
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false,
+  "ticket": "20261014-18-02",
+  "title": "Feyenoord vence o Como por 3 a 2 na Champions League",
+  "body": "O Feyenoord venceu o Como por 3 a 2 nesta quarta-feira (14), no estádio De Kuip, em Roterdã, pela segunda rodada da fase de liga da Champions League.\n\nDiao abriu o placar para o Como, e Gjivai Zechiël empatou dois minutos depois. O Feyenoord chegou a 3 a 1 no segundo tempo; o time italiano descontou nos acréscimos, mas não evitou a derrota.\n\nFoi a primeira vitória do Feyenoord nesta edição da competição. O clube havia perdido para o Barcelona na estreia.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261014-18-02-feyenoord-vence-como-champions)",
+  "source": "content/sources/feyenoord.json",
+  "sourceUrl": "https://www.feyenoord.com/en/news/feyenoord-defeat-como-1907-on-magical-night-at-de-kuip-141026",
+  "sourcePublishedAt": "2026-10-14T21:30+02:00",
+  "evidence": "O relato oficial do Feyenoord, publicado em 14/10/2026 às 21h30 no horário exibido pelo clube, confirma a vitória por 3 a 2, a sequência do placar e os primeiros três pontos da equipe na fase de liga.",
+  "confirmations": [
+    {
+      "source": "content/sources/uefa.json",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a9-218b8766a6ce-03f12a507d5c-1000--every-2026-27-uefa-champions-league-player-of-the-match/",
+      "evidence": "A UEFA confirmou o placar de 3 a 2 e escolheu Anis Hadj Moussa como jogador da partida."
+    }
+  ],
+  "reviewNote": "O horário da fonte foi normalizado com o fuso local de Roterdã em 14/10/2026."
+}
