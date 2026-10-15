@@ -1,0 +1,40 @@
+{
+  "ticket": "20261015-00-02",
+  "title": "Palmeiras vence o Fluminense por 2 a 1 na semifinal da Libertadores",
+  "body": "O Palmeiras venceu o Fluminense por 2 a 1 nesta quarta-feira (14), no Maracanã, no Rio de Janeiro, pelo jogo de ida da semifinal da Copa Libertadores. O resultado foi registrado por UOL e Folha de S.Paulo.\n\nFlaco López abriu o placar aos 44 minutos do primeiro tempo. Marlon Freitas ampliou aos 39 da segunda etapa, e Wesley Natã descontou para o Fluminense aos 48.\n\nA partida de volta será disputada na próxima quarta-feira (21), às 21h30, no Nubank Parque, em São Paulo.",
+  "preview": "[Abrir prévia da notícia](https://constanccini.github.io/clubismo-off/admin/previa/?noticia=20261015-00-02-palmeiras-vence-fluminense)",
+  "category": "noticias",
+  "type": "resultado",
+  "transferStage": "nao_se_aplica",
+  "sensitive": false,
+  "source": "content/sources/uol-esporte.json",
+  "sourceUrl": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/14/fluminense-x-palmeiras---libertadores.ghtm",
+  "sourcePublishedAt": "",
+  "evidence": "O UOL registra, em publicação de 14/10/2026 às 23h30 sem indicação de fuso, a vitória do Palmeiras por 2 a 1 no Maracanã, os autores e os minutos dos três gols e o jogo de volta em 21/10 às 21h30 no Nubank Parque.",
+  "confirmations": [
+    {
+      "source": "content/sources/folha-esporte.json",
+      "url": "https://www1.folha.uol.com.br/esporte/2026/10/palmeiras-vence-fluminense-no-maracana-e-abre-vantagem-na-semifinal-da-libertadores.shtml",
+      "evidence": "A Folha de S.Paulo confirma o placar de 2 a 1, os gols de Flaco López, Marlon Freitas e Wesley Natã, o Maracanã e a partida de volta em 21/10."
+    }
+  ],
+  "origin": "redacao",
+  "status": "revisao",
+  "author": "Redação Clubismo Off",
+  "reviewNote": "Fonte principal de grau B, corroborada pela Folha de S.Paulo. O campo sourcePublishedAt ficou vazio porque o UOL não declara o fuso do horário exibido.",
+  "image": "",
+  "imageAlt": "",
+  "imageCaption": "",
+  "imageCredit": "",
+  "imageSource": "",
+  "imageLicense": "",
+  "imageLicenseUrl": "",
+  "publishedAt": "",
+  "updatedAt": "",
+  "correction": "",
+  "reviewer": "",
+  "reviewedAt": "",
+  "sourceChecked": false,
+  "factsChecked": false,
+  "styleChecked": false
+}
